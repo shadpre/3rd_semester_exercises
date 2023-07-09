@@ -3,7 +3,7 @@ namespace gettingstarted;
 
 public class HardLinqSolutions : IHardLinqExercises
 {
-    public List<string> GetAnagrams(string word, List<string> words)
+    public List<string>GetAnagrams(string word, List<string> words)
     {
         var sortedWord = string.Concat(word.OrderBy(c => c));
         var anagrams = new List<string>();

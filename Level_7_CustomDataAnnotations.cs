@@ -15,7 +15,7 @@ public class Citizen {
 
 
 public class IsBornBetweenTheseDates : ValidationAttribute
-{
+{ 
     private readonly DateTime _min;
     private readonly DateTime _max;
 

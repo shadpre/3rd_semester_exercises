@@ -1,0 +1,730 @@
+{
+  "info": {
+    "_postman_id": "5ad240a1-c6e5-45d0-a405-fa271332e8e5",
+    "name": "NewsAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /feed 200 success",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const insertingAnArticleSoItIsNotEmpty = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(insertingAnArticleSoItIsNotEmpty, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var firstItem = pm.response.json().responseData[0];",
+              "",
+              "pm.test('Response JSON has responseData array with object with property \"headline\"', function () {",
+              "    pm.expect(firstItem.headline).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('Response JSON has responseData array with object with property \"articleId\"', function () {",
+              "    pm.expect(firstItem.articleId).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData array with object without property \"author\"', function () {",
+              "    pm.expect(firstItem.author).is.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData array with object with property \"articleImgUrl\"', function () {",
+              "    pm.expect(firstItem.articleImgUrl).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('Response JSON has responseData array with object with property \"body\"', function () {",
+              "    pm.expect(firstItem.body).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('body is not too long', function () {",
+              "    pm.expect(firstItem[\"body\"]).length.is.lessThan(51);",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/feed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "feed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /articles/{{articleId}} success",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToGet = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToGet, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var firstItem = pm.response.json().responseData;",
+              "",
+              "pm.test('Response JSON has responseData object with property \"headline\"', function () {",
+              "    pm.expect(firstItem.headline).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleId\"', function () {",
+              "    pm.expect(firstItem.articleId).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"author\"', function () {",
+              "    pm.expect(firstItem.author).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleImgUrl\"', function () {",
+              "    pm.expect(firstItem.articleImgUrl).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('Response JSON has responseData object with property \"body\"', function () {",
+              "    pm.expect(firstItem.body).is.not.undefined;",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles",
+            "{{articleId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE /articles/{{articleId}} success",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToDelete = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToDelete, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles",
+            "{{articleId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /articles fail author name",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Rejected because headline is too long\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"headline\": \"sfdsjfkdsfjdsklfjdslkfjdslkfjlkdsfjlkfdsjlfds\",\n    \"author\": \"Alice\",\n    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",\n    \"body\": \"{{$randomLoremSentence}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /articles fail author name Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 400\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"headline\": \"{{$randomLoremSentence}}\",\n    \"author\": \"Alice\",\n    \"articleImgUrl\": \"https://todayindenmark.com/wp-content/uploads/2022/12/Find-out-if-you-qualify-for-unemployment-benefits-in-Denmark-392x272.jpg\",\n    \"body\": \"{{$randomLoremSentence}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /articles success success",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "var firstItem = pm.response.json().responseData;",
+              "",
+              "pm.test('Response JSON has responseData object with property \"headline\"', function () {",
+              "    pm.expect(firstItem.headline).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleId\"', function () {",
+              "    pm.expect(firstItem.articleId).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"author\"', function () {",
+              "    pm.expect(firstItem.author).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleImgUrl\"', function () {",
+              "    pm.expect(firstItem.articleImgUrl).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('Response JSON has responseData object with property \"body\"', function () {",
+              "    pm.expect(firstItem.body).is.not.undefined;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"headline\": \"{{$randomLoremSentence}}\",\n    \"author\": \"Bob\",\n    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",\n    \"body\": \"{{$randomLoremSentence}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Too short search term",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToGet = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToGet, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Rejected because search term should be 3 or more characters\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles?searchTerm=qw&pageSize=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ],
+          "query": [
+            {
+              "key": "searchTerm",
+              "value": "qw"
+            },
+            {
+              "key": "pageSize",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "page size is too low",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToGet = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://todayindenmark.com/wp-content/uploads/2022/12/Find-out-if-you-qualify-for-unemployment-benefits-in-Denmark-392x272.jpg\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToGet, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Rejected because page size should be at least 1\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles?searchTerm=blah&pageSize=0",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ],
+          "query": [
+            {
+              "key": "searchTerm",
+              "value": "blah"
+            },
+            {
+              "key": "pageSize",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /articles with params success Copy",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToGet = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://todayindenmark.com/wp-content/uploads/2022/12/Find-out-if-you-qualify-for-unemployment-benefits-in-Denmark-392x272.jpg\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToGet, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var firstItem = pm.response.json().responseData[0];",
+              "",
+              "pm.test('Response JSON has responseData object with property \"headline\"', function () {",
+              "    pm.expect(firstItem.headline).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleId\"', function () {",
+              "    pm.expect(firstItem.articleId).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"author\"', function () {",
+              "    pm.expect(firstItem.author).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object without property \"body\"', function () {",
+              "    pm.expect(firstItem.body).is.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object without property \"articleImgUrl\"', function () {",
+              "    pm.expect(firstItem.articleImgUrl).is.undefined;",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles?searchTerm=blah&pageSize=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles"
+          ],
+          "query": [
+            {
+              "key": "searchTerm",
+              "value": "blah"
+            },
+            {
+              "key": "pageSize",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /articles/{{articleId}} success",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "",
+              "const createArticleToGet = {",
+              "  url: pm.collectionVariables.get('baseUrl')+'/articles',",
+              "  method: 'POST',",
+              "  header: {",
+              "    'Content-Type': 'application/json'",
+              "  },",
+              "  body: {",
+              "    mode: 'raw',",
+              "    raw: JSON.stringify(",
+              "{",
+              "    \"headline\": \"blah blah\",",
+              "    \"author\": \"Bob\",",
+              "    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",",
+              "    \"body\": \"blah blah blah\"",
+              "}",
+              "",
+              "    )",
+              "  }",
+              "};",
+              "pm.sendRequest(createArticleToGet, (error, response) => {",
+              "  console.log(error ? error : response.json());",
+              "  pm.variables.set('articleId',response.json().responseData.articleId);",
+              "})"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var firstItem = pm.response.json().responseData;",
+              "",
+              "pm.test('Response JSON has responseData object with property \"headline\"', function () {",
+              "    pm.expect(firstItem.headline).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleId\"', function () {",
+              "    pm.expect(firstItem.articleId).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"author\"', function () {",
+              "    pm.expect(firstItem.author).is.not.undefined;",
+              "});",
+              "pm.test('Response JSON has responseData object with property \"articleImgUrl\"', function () {",
+              "    pm.expect(firstItem.articleImgUrl).is.not.undefined;",
+              "});",
+              "",
+              "pm.test('Response JSON has responseData object with property \"body\"', function () {",
+              "    pm.expect(firstItem.body).is.not.undefined;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"headline\": \"{{$randomLoremSentence}}\",\n    \"author\": \"Bob\",\n    \"articleImgUrl\": \"https://contenthub-static.grammarly.com/blog/wp-content/uploads/2022/08/BMD-3398.png\",\n    \"body\": \"{{$randomLoremSentence}}\"\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles/{{articleId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "articles",
+            "{{articleId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "default"
+    }
+  ]
+}

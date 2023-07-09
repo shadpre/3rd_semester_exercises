@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace gettingstarted;
 
-public class Level_4_LINQHard : IHardLinqExercises
+public class HardLinqExercises : IHardLinqExercises
 {
     public List<string> GetAnagrams(string word, List<string> words)
     {
@@ -29,7 +29,7 @@ public class HardLinqTests
     [SetUp]
     public void Setup()
     {
-        _exercises = new HardLinqSolutions();
+        _exercises = new HardLinqExercises();
     }
 
     [Test]

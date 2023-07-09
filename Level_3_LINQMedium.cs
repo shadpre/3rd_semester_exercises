@@ -102,7 +102,7 @@ public interface IMediumLinqExercises
 }
 
 [TestFixture]
-public class LinqExercisesTests
+public class MediumLinqExercisesTests
 {
     private IMediumLinqExercises _exercises;
 

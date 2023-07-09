@@ -20,6 +20,7 @@ Topics in "natual" order:
 
 - Return business object or throw exception.
 - Creating HTTP responses (status code, body, header)
+  (de to øverste skal måske kombineres?)
 - Creating repository methods with Dapper
 - Bogus
 
@@ -45,4 +46,5 @@ Inputs til øvelser til sys dev:
 - Skrive PM tests
 - Skrive Playwright tests
 - Meget alternativ øvelse til metodikker måske
-- How to deploy
+  - Invent your own methodology
+- Deployment
