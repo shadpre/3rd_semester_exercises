@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "gettingstarted.sln"
+    "dotnet.defaultSolution": "gettingstarted.sln",
+    "workbench.tree.indent": 12
 }

@@ -10,6 +10,7 @@ using NUnit.Framework;
 
 namespace gettingstarted;
 
+
 public class MediumLinqExercises : IMediumLinqExercises
 {
     public int CountVowels(string text)
