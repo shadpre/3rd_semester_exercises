@@ -1,0 +1,4 @@
+- Adding reference
+- Dependency injection (builder + constructor)
+- Service lifetimes
+- 

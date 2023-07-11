@@ -1,0 +1,5 @@
+- Containerization (Docker, Kubernetes, etc, covered in 4th semester DevOps and Pba. Programme)
+- "esoteric" request and response formats and HTTP verbs
+- API versioning (Covered in 4th semester Full-stack)
+- We'll work a lot with async in the frontend, but primarily I'll demonstrate synchronous programming on the backend.
+- 

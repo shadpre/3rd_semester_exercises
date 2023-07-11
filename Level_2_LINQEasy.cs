@@ -1,3 +1,13 @@
+/*
+Task: Implement all the methods. All of them can be completed using LINQ.
+Basic conditionals and loops can also do the job.
+Success criteria: All tests passing.
+Learing objective: Being able to write easy algorithms.
+Additional help: I put guided solutions in the ./Solutions directory.
+
+Relevant docs: 
+*/
+
 using NUnit.Framework;
 
 namespace gettingstarted;

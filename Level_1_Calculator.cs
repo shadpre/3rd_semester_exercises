@@ -1,4 +1,13 @@
-﻿using NUnit.Framework;
+﻿/*
+Task: Implement all the methods in the calculator, and run the unit tests.
+Success criteria: All tests passing.
+Learing objective: Being able to write some very basic methods.
+Additional help: I put guided solutions in the ./Solutions directory.
+
+Relevant docs: 
+*/
+
+using NUnit.Framework;
 namespace gettingstarted;
 
 public class Level_1_Calculator : ICalculator
