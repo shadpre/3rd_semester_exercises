@@ -1,7 +1,0 @@
-- Containerization (Docker, Kubernetes, etc, covered in 4th semester DevOps and Pba. Programme)
-- "esoteric" request and response formats and HTTP verbs
-- API versioning (Covered in 4th semester Full-stack)
-- We'll work a lot with async in the frontend, but primarily I'll demonstrate synchronous programming on the backend.
-- The course does not aim to make you an excellent Javascript developer, but just as an introduction to making modern Javascript applications using an SPA framework (Angular).
-- We will cover just enough HTML and light CSS to be able to use Angular.
-- 

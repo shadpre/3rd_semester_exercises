@@ -1,11 +1,18 @@
 
 ### Level 0: Getting started
 
+Start out by installing the .NET 8.0 runtime and SDK here: 
+https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+
+
 
 **Task:**
 
 Before you start the unit test exercises at level 1,
 I recommend taking some time getting familiar with the .NET command line interface (CLI).
+
+
+
 
 You can always write --help after a command to get help (like valid arguments / options, what the command does, etc)
 
