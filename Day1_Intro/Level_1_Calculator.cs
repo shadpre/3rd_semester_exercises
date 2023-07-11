@@ -1,13 +1,16 @@
 ﻿/*
 Task: Implement all the methods in the calculator, and run the unit tests.
-Success criteria: All tests passing.
+Success criteria: All tests passing. (run dotnet test from root folder where .csproj is or click the "run" arrows at the tests)
 Learing objective: Being able to write some very basic methods.
 Additional help: I put guided solutions in the ./Solutions directory.
 
-Relevant docs: 
+Also note: In real world projects, you should separate your tests from your production code,
+however I wanted to do you a service by putting the test right next to the method.
+This way you can just click the arrow in your IDE to run test + look at the test code if you're curious
 */
 
 using NUnit.Framework;
+
 namespace gettingstarted;
 
 public class Level_1_Calculator : ICalculator
@@ -15,6 +18,13 @@ public class Level_1_Calculator : ICalculator
     public int Add(int a, int b)
     {
         throw new NotImplementedException();
+    }
+
+    [Test]
+    public void Add_ReturnsCorrectSum()
+    {
+        int result = Add(1, 2);
+        Assert.AreEqual(3, result);
     }
 
     public int Subtract(int a, int b)
@@ -58,8 +68,6 @@ public class Level_1_Calculator : ICalculator
     }
 }
 
-
-[TestFixture]
 public class CalculatorTests
 {
     ICalculator calculator;
@@ -70,12 +78,6 @@ public class CalculatorTests
         calculator = new Level_1_Calculator();
     }
 
-    [Test]
-    public void Add_ReturnsCorrectSum()
-    {
-        int result = calculator.Add(1, 2);
-        Assert.AreEqual(3, result);
-    }
 
     [Test]
     public void Subtract_ReturnsCorrectDifference()

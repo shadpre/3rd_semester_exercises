@@ -6,6 +6,7 @@
     &lt;TestAncestor&gt;
       &lt;TestId&gt;NUnit3x::98964B92-375E-464D-BAF6-3C21A75EDA42::net8.0::gettingstarted.HomeControllerTest.GetResponse_Test&lt;/TestId&gt;
       &lt;TestId&gt;NUnit3x::98964B92-375E-464D-BAF6-3C21A75EDA42::net8.0::gettingstarted.HomeControllerTest.ManuallyModifyHttpContext_Test&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::98964B92-375E-464D-BAF6-3C21A75EDA42::net8.0::gettingstarted.Level_1_Calculator.Add_ReturnsCorrectSum&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
