@@ -1,0 +1,1 @@
+No lectures during week 42!

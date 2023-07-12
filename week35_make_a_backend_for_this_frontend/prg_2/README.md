@@ -1,0 +1,1 @@
+I will be present and help with your backend development during this lesson. There will not be any new presentations - just development.
