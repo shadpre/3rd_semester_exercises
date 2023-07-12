@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         body {
@@ -21,12 +22,14 @@
             margin-bottom: 10px;
         }
 
-        .active, .accordion:hover {
+        .active,
+        .accordion:hover {
             background-color: #ccc;
         }
 
         .accordion:after {
-            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
             font-size: 13px;
             color: #777;
             float: right;
@@ -34,7 +37,8 @@
         }
 
         .active:after {
-            content: "\2796"; /* Unicode character for "minus" sign (-) */
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
         }
 
         .panel {
@@ -47,51 +51,95 @@
         }
     </style>
 </head>
+
 <body>
-<div id="accordion-container">
-    <!-- Accordion items will be dynamically generated here -->
-</div>
+    <div id="accordion-container">
+        <!-- Accordion items will be dynamically generated here -->
+    </div>
 
-<script>
-    var data = [
-        { title: 'Monday, 14.08: Introduction to .NET & C#', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-        { title: 'Tuesday, 15.08: Nuget, Structure, NUnit, LINQ', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_2_nuget%252Bstructure%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-        { title: 'Wednesday, 16.08: Web API', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-        {title: "Thursday, 17.08: POST, PUT, DELETE", content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_4_POST_PUT_DELETE%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on'}
-    ];
+    <script>
+        var data = [
+            { title: 'Monday, 14.08: Introduction to .NET & C#', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: 'Tuesday, 15.08: Nuget, Structure, NUnit, LINQ', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_2_nuget%252Bstructure%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: 'Wednesday, 16.08: Web API', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: "Thursday, 17.08: POST, PUT, DELETE", content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_4_POST_PUT_DELETE%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_5_service%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_1_Dapper%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_2_Dapper_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_3_Bogus%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_4_middleware_actionfilters%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_1_html%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_2_html_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_1_github_actions%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_2_branching%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_1_js_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_2_js_fetch%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_1_merging%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_2_processes_at_scale%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_1_npm%252Bruntimes%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_2_typescript%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_1_pm_scripting%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_2_pm_scripting_workshop%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_1_angular_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_2_angular_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_1_e2e_testing_intro%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_2_writing_tests%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_1_ionic_1%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_2_ionic_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_1_automating_e2e%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_2_%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek42_HOLIDAY%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_1_feature_inf%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_2_multimedia_content%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_1_methodologies_1%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_2_methodologies_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_1_3rd_party_apis%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_2_3rd_party_apis_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_1_methodologies_3%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_2_exam_info_meeting%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_1_deployment_1%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_2_deployment_2%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_1_buffer%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_2_buffer%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: '', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek46%252B_EXAM_PROJECT%2FREADME.md&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-    var container = document.getElementById('accordion-container');
+        ];
 
-    for (var i = 0; i < data.length; i++) {
-        var button = document.createElement('button');
-        button.className = 'accordion';
-        button.textContent = data[i].title;
+        var container = document.getElementById('accordion-container');
 
-        var div = document.createElement('div');
-        div.className = 'panel';
+        for (var i = 0; i < data.length; i++) {
+            var button = document.createElement('button');
+            button.className = 'accordion';
+            button.textContent = data[i].title;
 
-        var script = document.createElement('script');
-        script.setAttribute('src', data[i].content);
+            var div = document.createElement('div');
+            div.className = 'panel';
 
-        div.appendChild(script);
-        container.appendChild(button);
-        container.appendChild(div);
-    }
+            var script = document.createElement('script');
+            script.setAttribute('src', data[i].content);
 
-    var acc = document.getElementsByClassName("accordion");
+            div.appendChild(script);
+            container.appendChild(button);
+            container.appendChild(div);
+        }
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-</script>
+        var acc = document.getElementsByClassName("accordion");
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
 
 </body>
+
 </html>
