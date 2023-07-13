@@ -29,7 +29,7 @@ A couple notes on tech stack decisions for those who are interested:
 
 ### Important links
 - The "single source of truth" for course content for both Programming II and Systems Development II: 
-https://github.dev/uldahlalex/3rd-semester-exercises (I recommend you clone this one. If I make any contributions, you can always pull my changes)
+https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this one. If I make any contributions, you can always pull my changes)
 - Playlist with videos for this course: https://www.youtube.com/playlist?list=PL10w4feZfunrIXJWTAtCgwOWCBhezxZlS
 
 
@@ -73,3 +73,5 @@ It is my personal philisophy that mixing all 5 styles is beneficial for your lea
 - The course does not aim to make you an excellent Javascript developer, but functions as an introduction to making modern Javascript applications using an SPA framework (Angular).
 - We will cover just enough HTML and light CSS to be able to use Angular.
 - 
+
+

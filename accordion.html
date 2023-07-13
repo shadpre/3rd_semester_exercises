@@ -4,50 +4,52 @@
 <head>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f9f9f9;
         }
 
         .accordion {
-            background-color: #eee;
-            color: #444;
+            background-color: #f2f2f2;
+            color: #333;
             cursor: pointer;
             padding: 18px;
             width: 100%;
             border: none;
             text-align: left;
             outline: none;
-            font-size: 15px;
+            font-size: 15px; /* Adjust size as needed */
+            font-weight: bold; /* Make the title bold */
             transition: 0.4s;
             border-radius: 5px;
             margin-bottom: 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
 
         .active,
         .accordion:hover {
-            background-color: #ccc;
+            background-color: #e6e6e6;
         }
 
-        .accordion:after {
-            content: '\02795';
-            /* Unicode character for "plus" sign (+) */
-            font-size: 13px;
+        .accordion::before {
+            content: '▶';
             color: #777;
-            float: right;
-            margin-left: 5px;
+            float: left;
+            margin-right: 5px;
+            transition: 0.3s transform ease;
         }
 
-        .active:after {
-            content: "\2796";
-            /* Unicode character for "minus" sign (-) */
+        .active::before {
+            transform: rotate(90deg);
         }
 
         .panel {
             padding: 0 18px;
-            background-color: white;
+            background-color: #fff;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.2s ease-out;
             border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -64,76 +66,76 @@
 
 
 
-        var methodologies = [             { title: 'Week 35, day 1: Make a backend for this frontend: Presentation & theory', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fsys_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+        var methodologies = [             { title: 'Week 35, day 1: Make a backend for this frontend: Presentation & theory', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fsys_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 35, day 2: Make a backend for this frontend workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fsys_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 36, day 1: Software automation & Github Actions', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_1_github_actions%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 36, day 2: Branching strategies', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_2_branching%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 37, day 1: Merging', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_1_merging%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 37, day 2: Processes at scale', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_2_processes_at_scale%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-           { title: 'Week 38, day 1: Postman scripting', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_1_pm_scripting%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 38, day 2: Postman scripting workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_2_pm_scripting_workshop%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 39, day 1: E2E testing with Playwright', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_1_e2e_testing_intro%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 39, day 2: Playwright: Writing tests', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_2_writing_tests%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 40, day 1: Automating E2E tests', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_1_automating_e2e%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 40, day 2: Test writing workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_2_%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 35, day 2: Make a backend for this frontend workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fsys_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 36, day 1: Software automation & Github Actions', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_1_github_actions%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 36, day 2: Branching strategies', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fsys_2_branching%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 37, day 1: Merging', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_1_merging%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 37, day 2: Processes at scale', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fsys_2_processes_at_scale%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+           { title: 'Week 38, day 1: Postman scripting', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_1_pm_scripting%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 38, day 2: Postman scripting workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fsys_2_pm_scripting_workshop%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 39, day 1: E2E testing with Playwright', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_1_e2e_testing_intro%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 39, day 2: Playwright: Writing tests', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fsys_2_writing_tests%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 40, day 1: Automating E2E tests', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_1_automating_e2e%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 40, day 2: Test writing workshop', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fsys_2_%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 41, day 1: Compulsory assignment', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fsys_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 41, day 1: Compulsory assignment', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fsys_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 41, day 2: Compulsory assignment II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fsys_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 42: HOLIDAY', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek42_HOLIDAY%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 41, day 2: Compulsory assignment II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fsys_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 42: HOLIDAY', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek42_HOLIDAY%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 43, day 1: Methodologies I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_1_methodologies_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 43, day 2: Methodologies II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_2_methodologies_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 44, day 1: Methodologies III', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_1_methodologies_3%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 44, day 2: Exam info meeting', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_2_exam_info_meeting%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 45, day 1: Deploying to Azure', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_1_deployment_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 45, day 2: Deploying to Azure II:', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_2_deployment_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 43, day 1: Methodologies I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_1_methodologies_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 43, day 2: Methodologies II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fsys_2_methodologies_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 44, day 1: Methodologies III', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_1_methodologies_3%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 44, day 2: Exam info meeting', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fsys_2_exam_info_meeting%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 45, day 1: Deploying to Azure', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_1_deployment_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 45, day 2: Deploying to Azure II:', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fsys_2_deployment_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
         ];
 
 
 
         var backend = [
-            { title: 'Monday, 14.08: Introduction to .NET & C#', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-            { title: 'Tuesday, 15.08: Nuget, Structure, NUnit, LINQ', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_2_nuget%252Bstructure%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-            { title: 'Wednesday, 16.08: Web API', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-            { title: "Thursday, 17.08: POST, PUT, DELETE", content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_4_POST_PUT_DELETE%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
-            { title: 'Friday, 18.08: Program.cs, ', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_5_service%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Monday, 21.08: Dapper', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_1_Dapper%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Tuesday, 22.08: Dapper II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_2_Dapper_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Wednesday, 23.08: Bogus', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_3_Bogus%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Thursday, 24.08: Middleware & Action Filters', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_4_middleware_actionfilters%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 35, day 1: Make a backend for this frontend', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fprg_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Monday, 14.08: Introduction to .NET & C#', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: 'Tuesday, 15.08: Nuget, Structure, NUnit, LINQ', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_2_nuget%252Bstructure%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: 'Wednesday, 16.08: Web API', content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_1_intro%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: "Thursday, 17.08: POST, PUT, DELETE", content: 'https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_4_POST_PUT_DELETE%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on' },
+            { title: 'Friday, 18.08: Program.cs, ', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek33%2Fprg_5_service%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Monday, 21.08: Dapper', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_1_Dapper%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Tuesday, 22.08: Dapper II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_2_Dapper_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Wednesday, 23.08: Bogus', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_3_Bogus%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Thursday, 24.08: Middleware & Action Filters', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek34%2Fprg_4_middleware_actionfilters%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 35, day 1: Make a backend for this frontend', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fprg_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 35, day 2: Make a backend for this frontend continued', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fprg_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 36, day 1: HTML', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_1_html%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 36, day 2: HTML II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_2_html_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 35, day 2: Make a backend for this frontend continued', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek35_make_a_backend_for_this_frontend%2Fprg_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 36, day 1: HTML', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_1_html%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 36, day 2: HTML II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek36%2Fprg_2_html_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 37, day 1: Javascript intro', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_1_js_intro%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 37, day 2: Javascript asynchronous', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_2_js_fetch%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 37, day 1: Javascript intro', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_1_js_intro%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 37, day 2: Javascript asynchronous', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek37%2Fprg_2_js_fetch%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 38, day 1: npm & Javascript runtimes', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_1_npm%252Bruntimes%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 38, day 2: Typescript', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_2_typescript%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 38, day 1: npm & Javascript runtimes', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_1_npm%252Bruntimes%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 38, day 2: Typescript', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek38%2Fprg_2_typescript%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 39, day 1: Angular I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_1_angular_intro%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 39, day 2: Angular II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_2_angular_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 39, day 1: Angular I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_1_angular_intro%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 39, day 2: Angular II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek39%2Fprg_2_angular_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 40, day 1: Ionic I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_1_ionic_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 40, day 2: Ionic II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_2_ionic_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 40, day 1: Ionic I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_1_ionic_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 40, day 2: Ionic II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek40%2Fprg_2_ionic_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 41, day 1: Compulsory assignment', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fprg_1%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 41, day 1: Compulsory assignment', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fprg_1%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 41, day 2: Compulsory assignment continued', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fprg_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 42: HOLIDAY', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek42_HOLIDAY%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 43, day 1: Full-stack feature example: Infinite scrolling feed', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_1_feature_inf%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 43, day 2: Multimedia content', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_2_multimedia_content%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 44, day 1: 3rd Party APIs I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_1_3rd_party_apis%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 44, day 2: 3rd Party APIs II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_2_3rd_party_apis_2%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 41, day 2: Compulsory assignment continued', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek41_COMPULSORY_ASSIGNMENT%2Fprg_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 42: HOLIDAY', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek42_HOLIDAY%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 43, day 1: Full-stack feature example: Infinite scrolling feed', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_1_feature_inf%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 43, day 2: Multimedia content', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek43%2Fprg_2_multimedia_content%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 44, day 1: 3rd Party APIs I', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_1_3rd_party_apis%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 44, day 2: 3rd Party APIs II', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek44%2Fprg_2_3rd_party_apis_2%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
-            { title: 'Week 45, day 1: Buffer', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_1_buffer%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 45, day 2: Buffer', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_2_buffer%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
-            { title: 'Week 46+ Exam project', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek46%252B_EXAM_PROJECT%2FREADME.md&style=base16%2Fespresso&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 45, day 1: Buffer', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_1_buffer%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 45, day 2: Buffer', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek45%2Fprg_2_buffer%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
+            { title: 'Week 46+ Exam project', content: "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fuldahlalex%2F3rd_semester_exercises%2Fblob%2Fmain%2Fweek46%252B_EXAM_PROJECT%2FREADME.md&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on" },
 
 
         ];
@@ -141,9 +143,9 @@
 
 
 
-        var container = document.getElementById('methodologies');
+        var container = document.getElementById('backend');
 
-        var data = methodologies;
+        var data = backend;
         for (var i = 0; i < data.length; i++) {
     var button = document.createElement('button');
     button.className = 'accordion';

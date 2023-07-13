@@ -4,7 +4,7 @@
 Start out by installing the .NET 8.0 runtime and SDK here: 
 https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
-
+*Note: It can be a good idea to look simply install all tools for the course. See "tech stack" under course_info.md in the root folder of this repo.*
 
 **Task:**
 

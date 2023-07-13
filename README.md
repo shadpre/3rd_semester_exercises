@@ -9,7 +9,7 @@ Each day will have a README.md file with the info about that particular day + ex
 
 All exercises/projects have a task, a success criteria(goal) and a learning objective(why I made this / what I want you to understand).
 
-With few exceptions I made all exercises and projects myself (it is noted when that is not the case. "Further reading" is always 3rd party resources I find helpful). If you have any problems, please reach out to me, I'd be delighted to help.
+With few exceptions I made all exercises and projects myself (it is noted when that is not the case). If you have any problems, please reach out to me, I'd be delighted to help.
 
 Moodle is primarily used for describing the topics for each day. This repository is the single source of truth for any course content. Semester info is still on Moodle here: https://moodle.easv.dk/course/view.php?id=2906
 
