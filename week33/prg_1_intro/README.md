@@ -17,7 +17,8 @@ https://github.com/uldahlalex/3rd_semester_exercises/blob/main/course_info.md )
 
 These first two weeks will be packed with C# programming and learning about API bulding.
 
-The first bigger project we're working towards, is the week 35 assignment(right after the 2 weeks of coding with me): **Creating a full backend application for a web frontend**.
+The first bigger project we're working towards, is the week 35 assignment(right after the 2 weeks of coding with me): 
+**Creating a full backend application for a web frontend**.
 
 
 

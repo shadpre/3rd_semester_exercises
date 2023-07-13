@@ -11,3 +11,7 @@ Relevant material before project start:
     - Postman Collections (Importing/Exporting from JSON)
     
 Note: I will not cover how to write Postman tests, only how to use tests I have supplied you with. We will postpone writing Postman tests until we have covered basic Javascript in Programming II.
+
+**Recommended actions:**
+- Start building the backend for the frontend I made. See all the details in the document inside of the week 35 directory in the monorepo on Github.
+

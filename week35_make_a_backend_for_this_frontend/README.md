@@ -2,13 +2,15 @@
 
 Hello developers! 👨‍💻
 
+# This assignment will be adjusted shortly, so if you're reading this now, be wary it is subject to change
+
 This assignment revolves around extending the functionality of a frontend application by building a corresponding backend. The primary function of this application is to serve as a news feed.
 
 The frontend interacts with your machine via the following address: [https://week35-86108.web.app](https://week35-86108.web.app)
 
 Your task is to develop an API running on [http://localhost:5000](http://localhost:5000), capable of responding to these requests.
 
-To ascertain the correct working of your backend, a suite of API tests (in JSON format) has been prepared using Postman. You can import these tests into your Postman HTTP client or execute them using the Newman CLI. The application will be considered fully functional when all tests pass and the frontend URL is navigated without any errors. The JSON file containing these tests can be found at `./Resources/MakeABackendForThisFrontendApiTests.json`.
+To ascertain the correct working of your backend, a suite of API tests (in JSON format) has been prepared using Postman. You can import these tests into your Postman HTTP client or execute them using the Newman CLI. The application will be considered fully functional when all tests pass and the frontend URL is navigated without any errors. The JSON file containing these tests can be found at `./MakeABackendForThisFrontendApiTests.json`. (the .json file in this directory on Github)
 
 ## API Expectations
 
