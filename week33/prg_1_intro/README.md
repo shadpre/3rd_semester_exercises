@@ -20,6 +20,7 @@ These first two weeks will be packed with C# programming and learning about API 
 The first bigger project we're working towards, is the week 35 assignment(right after the 2 weeks of coding with me): **Creating a full backend application for a web frontend**.
 
 
+
 ### Relevant documentation, literature & links (high priority reading is in *italics*):
 - Download .NET 8: https://dotnet.microsoft.com/en-us/download/dotnet/8.0 (and also pick an IDE of your choice. 
 My personal recommendation is Rider by Jetbrains, which you have a student license for).
