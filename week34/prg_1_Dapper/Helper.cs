@@ -1,3 +1,4 @@
+using Bogus;
 using Dapper;
 using Newtonsoft.Json;
 using Npgsql;
@@ -132,5 +133,15 @@ create table if not exists library.reading_list_items
         string actualJson = JsonConvert.SerializeObject(actual, Formatting.Indented);
 
         return $"because we want these objects to be equivalent:\nExpected:\n{expectedJson}\nActual:\n{actualJson}";
+    }
+
+    public static Book MakeRandomBookWithId(int id)
+    {
+        return new Faker<Book>()
+            .RuleFor(b => b.BookId, id)
+            .RuleFor(b => b.Publisher, p => p.Company.CompanyName())
+            .RuleFor(b => b.Title, t => t.Lorem.Sentence())
+            .RuleFor(b => b.CoverImgUrl, "https://picsum.photos/200/300")
+            .Generate();
     }
 }
