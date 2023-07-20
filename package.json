@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@octokit/rest": "^20.0.1",
+    "@types/node": "^20.4.2",
+    "cross-fetch": "^4.0.0",
+    "node-fetch": "^3.3.1"
+  }
+}

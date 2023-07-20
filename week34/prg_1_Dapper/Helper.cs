@@ -144,4 +144,14 @@ create table if not exists library.reading_list_items
             .RuleFor(b => b.CoverImgUrl, "https://picsum.photos/200/300")
             .Generate();
     }
+
+    public static Author MakeRandomAuthorWithId(int id)
+    {
+        return new Faker<Author>()
+            .RuleFor(a => a.AuthorId, id)
+            .RuleFor(a => a.Bithday, b => b.Date.Recent())
+            .RuleFor(a => a.Name, n => n.Name.FullName())
+            .RuleFor(a => a.Nationality, n => n.Lorem.Word())
+            .Generate();
+    }
 }
