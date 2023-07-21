@@ -1,0 +1,250 @@
+<style>
+    body {
+
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f9f9f9;
+    }
+
+    .accordion {
+        background-color: #f2f2f2;
+        color: #333;
+        cursor: pointer;
+        padding: 18px;
+        width: 70%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px; /* Adjust size as needed */
+        font-weight: bold; /* Make the title bold */
+        transition: 0.4s;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .active,
+    .accordion:hover {
+        background-color: #e6e6e6;
+    }
+
+    .accordion::before {
+        content: '▶';
+        color: #777;
+        float: left;
+        margin-right: 5px;
+        transition: 0.3s transform ease;
+    }
+
+    .active::before {
+        transform: rotate(90deg);
+    }
+
+    .panel {
+        padding: 0 18px;
+        background-color: #fff;
+        max-height: 0;
+        overflow: hidden;
+        width: 70%;
+        transition: max-height 0.2s ease-out;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .panel.open {
+        max-height: none !important;
+    }
+
+</style>
+
+<div>
+    <div id="gist-container">
+        <button class="accordion">Week 36 Day 1: HTML</button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/edd91f85571ddb6a80548706caefc8ee.js"></script>
+        </div>
+
+
+        <button class="accordion">Week 36, Day 2: HTML II</button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/8fed08d301c97e91c9747619e2cbea8b.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/2f976183a191b0ca86e1a35e52c096e7.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/3b67d6e597ad8483a7aa1f29fadcc31f.js"></script>
+        </div>
+
+
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/870784748ee9d56b93d722060e31c01b.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/5800d018b033931f74478901a0dd51fb.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/0a379b909518767f1997b3931b71ed29.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/fec8142c78d0e90bff2aab7694d5120d.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/4f6b20947d4a2be439ee9dcd140f2af9.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/4c2d4bf14eb22aac5c4ad090840bbb32.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/03eb04a0c15a69a92e848186a707642d.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/2972f6acacf5c6b7a8469c9fb7de25eb.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/014dff8bed8bf7b19bef681c5d53a385.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/bca49ad13d4f7fe1bb6054f28984fa48.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/e9f7297ca659926c01506f4a71baf34e.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/4551748b9125162372186ff5e3f15da6.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/abe30ae72611ec1fb4586ff9264cc721.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/fe0e62f65b59c82aae47817b70e047b6.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/f23a5d9be75b94f9abd69e8cefed897c.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/7e5fa67a5ebe20cd157c2ce697a45e63.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/b48e43a44a12225b7f26461d3a58d0d6.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/571edd12e8948c54fa854755a78120a8.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/a7892bca206fa75305ab9268c8239dd2.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/3a912dd53900dbe5e80292accdce87ed.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/289ba86935b405c7d04de43354dddf4a.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/09f3bd4c468277a58806bbaf727d5ffe.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/1ea2f3a9cd145a330eb70257ab77f9f6.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/55c75c38f1691e1907438ceef479955a.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/1508e5a0e147d137d81953bacf16fb49.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/5216eab98200987d1a5e3ac51207bcfa.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/e79889d2ea57d9f7860c932b51e36523.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/4858f84dc96c7ad34956f2cd8b9ff032.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/120a0fb5b55bfb08138ca993ee733248.js"></script>
+        </div>
+
+        <button class="accordion"></button>
+        <div class="panel">
+            <script src="https://gist.github.com/uldahlalex/247b51db2ec392f1068769fa511296ab.js"></script>
+        </div>
+    </div>
+
+    <script>
+        var parent = document.getElementById("gist-container");
+        var acc = parent.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</div>
