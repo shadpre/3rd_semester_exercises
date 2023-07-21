@@ -38,8 +38,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var rest_1 = require("@octokit/rest");
 var cross_fetch_1 = require("cross-fetch");
+var lookup_1 = require("./lookup");
 // Your GitHub personal access token
-var token = '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';
+var token = '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';
 // The owner of the repository and the repository name
 var owner = 'uldahlalex';
 var repo = '3rd_semester_exercises';
@@ -57,29 +58,27 @@ var DataBlueprint = /** @class */ (function () {
 }());
 var data = [];
 // Function to create or update a gist
-function createOrUpdateGist(filename, content) {
+function myGistUpdateFunction(gistId, content) {
     return __awaiter(this, void 0, void 0, function () {
         var response, error_1;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
-                    _b.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, octokit.gists.create({
-                            public: true,
-                            files: (_a = {},
-                                _a[filename] = {
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, octokit.gists.update({
+                            gist_id: gistId,
+                            files: {
+                                'README.md': {
                                     content: content
-                                },
-                                _a)
+                                }
+                            }
                         })];
                 case 1:
-                    response = _b.sent();
-                    console.log("Created gist for ".concat(filename));
+                    response = _a.sent();
+                    console.log("Created gist");
                     return [2 /*return*/, response.data.html_url];
                 case 2:
-                    error_1 = _b.sent();
-                    console.error("Error creating gist for ".concat(filename, ": ").concat(error_1));
+                    error_1 = _a.sent();
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -87,64 +86,46 @@ function createOrUpdateGist(filename, content) {
     });
 }
 // Function to recursively get all README.md files in a repository
-function getReadmeFiles(path) {
-    if (path === void 0) { path = ''; }
+function getReadmeFiles() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, files, _i, files_1, file, readmeContentResponse, readmeFile, content, url, error_2;
+        var _i, values_1, pair, readmeContentResponse, readmeFile, content, gistId, url, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 9, , 10]);
-                    return [4 /*yield*/, octokit.repos.getContent({
-                            owner: owner,
-                            repo: repo,
-                            path: path,
-                        })];
+                    _a.trys.push([0, 6, , 7]);
+                    _i = 0, values_1 = lookup_1.values;
+                    _a.label = 1;
                 case 1:
-                    response = _a.sent();
-                    files = response.data;
-                    if (!Array.isArray(files)) return [3 /*break*/, 8];
-                    _i = 0, files_1 = files;
-                    _a.label = 2;
-                case 2:
-                    if (!(_i < files_1.length)) return [3 /*break*/, 8];
-                    file = files_1[_i];
-                    if (!(file.type === 'dir')) return [3 /*break*/, 4];
-                    // If the file is a directory, recursively search inside it
-                    return [4 /*yield*/, getReadmeFiles(file.path)];
-                case 3:
-                    // If the file is a directory, recursively search inside it
-                    _a.sent();
-                    return [3 /*break*/, 7];
-                case 4:
-                    if (!(file.name === 'README.md')) return [3 /*break*/, 7];
+                    if (!(_i < values_1.length)) return [3 /*break*/, 5];
+                    pair = values_1[_i];
                     return [4 /*yield*/, octokit.repos.getContent({
                             owner: owner,
                             repo: repo,
-                            path: file.path,
+                            path: pair.path,
                         })];
-                case 5:
+                case 2:
                     readmeContentResponse = _a.sent();
                     readmeFile = readmeContentResponse.data;
-                    if (!('content' in readmeFile)) return [3 /*break*/, 7];
+                    if (!('content' in readmeFile)) return [3 /*break*/, 4];
                     content = Buffer.from(readmeFile.content, 'base64').toString('utf8');
-                    return [4 /*yield*/, createOrUpdateGist(file.name, content)];
-                case 6:
+                    gistId = getGistId(pair.url);
+                    return [4 /*yield*/, myGistUpdateFunction(gistId, content)];
+                case 3:
                     url = _a.sent();
                     data.push({
-                        url: url,
-                        path: file.path
+                    /* url: url,
+                     path: pair.path*/
                     });
-                    _a.label = 7;
-                case 7:
+                    _a.label = 4;
+                case 4:
                     _i++;
-                    return [3 /*break*/, 2];
-                case 8: return [3 /*break*/, 10];
-                case 9:
+                    return [3 /*break*/, 1];
+                case 5: return [3 /*break*/, 7];
+                case 6:
                     error_2 = _a.sent();
-                    console.error("Error getting content of ".concat(path, ": ").concat(error_2));
-                    return [3 /*break*/, 10];
-                case 10: return [2 /*return*/];
+                    console.error("Error getting content of ".concat(error_2));
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
             }
         });
     });
@@ -153,3 +134,7 @@ function getReadmeFiles(path) {
 getReadmeFiles().then(function (res) {
     console.log(data);
 });
+function getGistId(url) {
+    var parts = url.split('/');
+    return parts[parts.length - 1];
+}

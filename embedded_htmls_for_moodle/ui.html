@@ -1,0 +1,246 @@
+<style>
+    body {
+
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f9f9f9;
+    }
+
+    .accordion {
+        background-color: #f2f2f2;
+        color: #333;
+        cursor: pointer;
+        padding: 18px;
+        width: 70%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px; /* Adjust size as needed */
+        font-weight: bold; /* Make the title bold */
+        transition: 0.4s;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .active,
+    .accordion:hover {
+        background-color: #e6e6e6;
+    }
+
+    .accordion::before {
+        content: '▶';
+        color: #777;
+        float: left;
+        margin-right: 5px;
+        transition: 0.3s transform ease;
+    }
+
+    .active::before {
+        transform: rotate(90deg);
+    }
+
+    .panel {
+        padding: 0 18px;
+        background-color: #fff;
+        max-height: 0;
+        overflow: hidden;
+        width: 70%;
+        transition: max-height 0.2s ease-out;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .panel.open {
+        max-height: none !important;
+    }
+
+</style>
+
+<div>
+
+    <button class="accordion">Root README file</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/b26a5c651b645776d104157c4e588029.js"></script>
+    </div>
+
+    <button class="accordion">Monday, August 14th: Intro</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/fa3bdc5edd43ea9fc3cbc34600abae7f.js"></script>
+    </div>
+
+    <button class="accordion">Tuesday, August 15th: Nuget, Structure, NUnit</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/0ef00dc71f55a5d786353acf45b8fd52.js"></script>
+    </div>
+
+    <button class="accordion">Wednesday, August 16th: First Web API</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/4a875e8e5b487082a71b9a306335632f.js"></script>
+    </div>
+
+    <button class="accordion">Thursday, August 17th: Web API's with Payload</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/824855c15b86c70f5a34c3b6289def8f.js"></script>
+    </div>
+
+    <button class="accordion">Friday, August 18th: Services</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/cb94e6b5f100ed86a5d5751f8bf0913a.js"></script>
+    </div>
+
+    <button class="accordion">Monday, August 21st: Dapper</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/91909bfe7bcd352ffb73d24cf71e8390.js"></script>
+    </div>
+
+    <button class="accordion">Tueday, August 22nd: Dapper II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/87023b9cc374278fd5258d0bf01c7dc1.js"></script>
+    </div>
+
+    <button class="accordion">Wednesday, August 23rd: Bogus</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/197495b5b520a421f917e5a1e4d95901.js"></script>
+    </div>
+
+    <button class="accordion">Thursday, August 24th: Middleware & Action Filters</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/7cf20db024235b0c3ecee373e1d6cff5.js"></script>
+    </div>
+
+    <button class="accordion">Week 35 project: "Make a backend for this frontend"</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/5bff88da6e9a7648533b39ec1421dbaa.js"></script>
+    </div>
+
+    <button class="accordion">Week 35, day 1: "Make a backend for this frontend" project</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/84511fe88b66293eae60f4f4d065a430.js"></script>
+    </div>
+
+    <button class="accordion">Week 35, day 2: "Make a backend for this frontend" project - continued</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/f1f15a541103679ee1df6b26617477c8.js"></script>
+    </div>
+
+    <button class="accordion">Week 36 Day 1: HTML</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/edd91f85571ddb6a80548706caefc8ee.js"></script>
+    </div>
+
+
+    <button class="accordion">Week 36, Day 2: HTML II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/8fed08d301c97e91c9747619e2cbea8b.js"></script>
+    </div>
+
+    <button class="accordion">Week 37, Day 1: JS</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/2f976183a191b0ca86e1a35e52c096e7.js"></script>
+    </div>
+
+    <button class="accordion">Week 37, Day 2: JS II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/3b67d6e597ad8483a7aa1f29fadcc31f.js"></script>
+    </div>
+
+
+
+    <button class="accordion">Week 38, Day 1: Npm & Runtimes for JS</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/870784748ee9d56b93d722060e31c01b.js"></script>
+    </div>
+
+    <button class="accordion">Week 38, Day 2: Typescript</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/5800d018b033931f74478901a0dd51fb.js"></script>
+    </div>
+
+
+    <button class="accordion">Week 39, Day 1: Angular Intro</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/4f6b20947d4a2be439ee9dcd140f2af9.js"></script>
+    </div>
+
+    <button class="accordion">Week 39, Day 2: Angular II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/4c2d4bf14eb22aac5c4ad090840bbb32.js"></script>
+    </div>
+
+    <button class="accordion">Week 40: Day 1: Angular + Ionic</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/014dff8bed8bf7b19bef681c5d53a385.js"></script>
+    </div>
+
+    <button class="accordion">Week 40, Day 2: Angular + Ionic II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/bca49ad13d4f7fe1bb6054f28984fa48.js"></script>
+    </div>
+
+    <button class="accordion">Week 41, Day 1: Compulsory assignment workshop</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/abe30ae72611ec1fb4586ff9264cc721.js"></script>
+    </div>
+
+    <button class="accordion">Week 41, Day 2: Compulsory Assignment workshop II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/fe0e62f65b59c82aae47817b70e047b6.js"></script>
+    </div>
+    <button class="accordion">Week 42: Holiday</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/b48e43a44a12225b7f26461d3a58d0d6.js"></script>
+    </div>
+    <button class="accordion">Week 43: Fullstack feature: Infinite scrolling feed</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/571edd12e8948c54fa854755a78120a8.js"></script>
+    </div>
+
+    <button class="accordion">Week 43: Fullstack feature: Multimedia web content</button>
+    <div class="panel">
+
+        <script src="https://gist.github.com/uldahlalex/a7892bca206fa75305ab9268c8239dd2.js"></script>
+    </div>            <button class="accordion">Week 44, Day 1: 3rd Party API's</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/09f3bd4c468277a58806bbaf727d5ffe.js"></script>
+    </div>
+
+    <button class="accordion">Week 44, Day 2: 3rd Party API's II</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/1ea2f3a9cd145a330eb70257ab77f9f6.js"></script>
+    </div>
+
+    <button class="accordion">Week 45, Day 1: Buffer</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/5216eab98200987d1a5e3ac51207bcfa.js"></script>
+    </div>
+
+    <button class="accordion">Week 45, Day 2: Buffer</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/e79889d2ea57d9f7860c932b51e36523.js"></script>
+    </div>
+    <button class="accordion">Week 46+ EXAM PROJECT</button>
+    <div class="panel">
+        <script src="https://gist.github.com/uldahlalex/247b51db2ec392f1068769fa511296ab.js"></script>
+    </div>
+
+
+
+
+</div>
+
+<script>
+
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</div>
