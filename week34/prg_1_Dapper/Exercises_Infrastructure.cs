@@ -4,6 +4,7 @@ using FluentAssertions;
 using gettingstarted.week34.prg_1_Dapper;
 using NUnit.Framework;
 
+
 /// <summary>
 /// Description: Please read beforehand.
 /// I supplied a database schema as a SQL script
@@ -11,27 +12,23 @@ using NUnit.Framework;
 /// Each test rebuilds and seeds the database, so you just have
 /// to think about implementing repository methods.
 ///
+/// When you have your method implementation, run the test
+/// (either click the green start button next to the tests at the bottom of the file)
+/// or use the dotnet test command.
+///
 /// Remember to add environment variable to the test running config
+/// Settings -> Build, execution, deployment
+/// -> Unit testing -> Test runner,
+/// scroll down to environment variables, add pgconn with you connection string value.
 /// </summary>
-public class InfrastructureExercises
+public class InfrastructureExercises : IInfrastructureExercises
 {
     //The data source can be accessed: Helper.Datasource (public + static)
 
     public IEnumerable<Book> GetAllBooks()
     {
-        var sql = @$"
-    SELECT 
-    book_id as {nameof(Book.BookId)}, 
-    title as {nameof(Book.Title)}, 
-    publisher as {nameof(Book.Publisher)}, 
-    cover_img_url as {nameof(Book.CoverImgUrl)} 
-    FROM library.books;";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.Query<Book>(sql);
-        }
+        throw new NotImplementedException();
     }
-
     [Test]
     public void GetAllBooksTest()
     {
@@ -59,20 +56,38 @@ public class InfrastructureExercises
         // Assert
         actual.Should().BeEquivalentTo(expected, Helper.MyBecause(actual, expected));
     }
-
+    
+    
     public Book InsertAndReturnBook(string title, string publisher, string coverImgUrl)
     {
-        var sql =
-            $@"INSERT INTO library.books (title, publisher, cover_img_url) VALUES (@title, @publisher, @coverImgUrl) 
-                                                            RETURNING     book_id as {nameof(Book.BookId)}, 
-    title as {nameof(Book.Title)}, 
-    publisher as {nameof(Book.Publisher)}, 
-    cover_img_url as {nameof(Book.CoverImgUrl)};";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.QueryFirst<Book>(sql, new { title, publisher, coverImgUrl });
-        }
+        throw new NotImplementedException();
     }
+
+    public Book UpdateBookById(int bookIdToUpdate, string newTitle, string newPublisher, string newCoverImgUrl)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool DeleteBookById(int bookId)
+    {
+        throw new NotImplementedException();
+    }
+
+    //This one is harder, so only proceed if you're ready for a more challenging exercise
+    public IEnumerable<BookWithAuthors> GetBooksWithAuthors()
+    {
+        throw new NotImplementedException();
+    }
+    
+    //Tomas, if you're reading this, I just want to know your opinion on the first 4 exercises.
+    //If this "implement the method so the test passes" format feels nice, I'll make a bunch more
+    //This could be exericses like the following:
+    //Select all books on reading list for user with ID X
+    //Get top 5 books by most added to reading list
+    //etc.
+
+
+
 
 
     [Test]
@@ -87,22 +102,6 @@ public class InfrastructureExercises
         actual.Should().BeEquivalentTo(book, Helper.MyBecause(actual, book));
     }
 
-    //Update book by ID
-    public Book UpdateBookById(int bookIdToUpdate, string newTitle, string newPublisher, string newCoverImgUrl)
-    {
-        var sql = @$"
-UPDATE library.books SET title = @newTitle, publisher = @newPublisher, cover_img_url = @newCoverImgUrl WHERE book_id = @bookIdToUpdate
-RETURNING 
-    book_id as {nameof(Book.BookId)}, 
-    title as {nameof(Book.Title)}, 
-    publisher as {nameof(Book.Publisher)}, 
-    cover_img_url as {nameof(Book.CoverImgUrl)};
-";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.QueryFirst<Book>(sql, new { bookIdToUpdate, newTitle, newPublisher, newCoverImgUrl });
-        }
-    }
 
     [Test]
     public void TestUpdateBookById()
@@ -125,19 +124,6 @@ RETURNING
 
         //ASSERT
         actual.Should().BeEquivalentTo(expected, Helper.MyBecause(actual, book));
-    }
-
-
-    //Does book with title exist true
-    public bool DeleteBookById(int bookId)
-    {
-        var sql = $@"
-DELETE FROM library.books WHERE book_id = @bookId;
-";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.Execute(sql, new { bookId }) == 1;
-        }
     }
 
     [Test]
@@ -174,27 +160,7 @@ DELETE FROM library.books WHERE book_id = @bookId;
             (doesNotExist && actual).Should().Be(true);
         }
     }
-
-
-    //Evt lav "fejle" tests, men infra bør ikke validate
-
-
-    //Join book with author names
-    public IEnumerable<BookWithAuthors> GetBooksWithAuthors()
-    {
-        var sql = $@"
-SELECT books.book_id as {nameof(BookWithAuthors.BookId)}, 
-       title as {nameof(BookWithAuthors.Title)}, 
-       array_agg(library.authors.name) as {nameof(BookWithAuthors.Authors)}
-FROM library.books 
-    JOIN library.author_wrote_book_items as junction on books.book_id = junction.book_id
-    JOIN library.authors on junction.author_id = authors.author_id
-GROUP BY books.book_id, books.title;";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.Query<BookWithAuthors>(sql);
-        }
-    }
+    
 
     [Test]
     public void TestGetBooksWithAuthors()
@@ -251,11 +217,48 @@ GROUP BY books.book_id, books.title;";
 
     }
 
-    //Select all books on reading list for user with ID 1
+}
 
-    //Get top 5 books by most added to reading list
-
-    //
+public interface IInfrastructureExercises
+{
+    /// <summary>
+    /// The test seeds some objects of generic type Book (see classes in the bottom of file).
+    /// Return these using the datasource from the Helper class.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerable<Book> GetAllBooks();
+    /// <summary>
+    /// Insert and return the inserted book with the listed properties.
+    /// </summary>
+    /// <param name="title"></param>
+    /// <param name="publisher"></param>
+    /// <param name="coverImgUrl"></param>
+    /// <returns></returns>
+    Book InsertAndReturnBook(string title, string publisher, string coverImgUrl);
+    
+    /// <summary>
+    /// The test seeds a book with the given ID, now you must update a property
+    /// </summary>
+    /// <param name="bookIdToUpdate"></param>
+    /// <param name="newTitle"></param>
+    /// <param name="newPublisher"></param>
+    /// <param name="newCoverImgUrl"></param>
+    /// <returns></returns>
+    Book UpdateBookById(int bookIdToUpdate, string newTitle, string newPublisher, string newCoverImgUrl);
+    
+    /// <summary>
+    /// Delete a book by ID and return true if deleted
+    /// </summary>
+    /// <param name="bookId"></param>
+    /// <returns></returns>
+    bool DeleteBookById(int bookId);
+    
+    /// <summary>
+    /// This one is hard:
+    /// you must make a 3 table join in order to find a list of books with author names who wrote it
+    /// </summary>
+    /// <returns></returns>
+    IEnumerable<BookWithAuthors> GetBooksWithAuthors();
 }
 
 public class Book
