@@ -39,8 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var rest_1 = require("@octokit/rest");
 var cross_fetch_1 = require("cross-fetch");
 var lookup_1 = require("./lookup");
-// Your GitHub personal access token
-var token = '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';
+var token_1 = require("./token");
 // The owner of the repository and the repository name
 var owner = 'uldahlalex';
 var repo = '3rd_semester_exercises';
@@ -49,7 +48,7 @@ var octokit = new rest_1.Octokit({
     request: {
         fetch: cross_fetch_1.default
     },
-    auth: token,
+    auth: token_1.token,
 });
 var DataBlueprint = /** @class */ (function () {
     function DataBlueprint() {

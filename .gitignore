@@ -3,3 +3,4 @@ obj
 .idea
 node_modules
 token.ts
+token.js
