@@ -1,6 +1,6 @@
 # Backend Development Assignment
 
-Hello developers! 👨‍💻
+Greetings, developers! 👨‍💻
 
 # This assignment will be adjusted shortly, so if you're reading this now, be wary it is subject to change
 
