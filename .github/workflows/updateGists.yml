@@ -24,6 +24,6 @@ jobs:
         run: npm install
         
       - name: Build to JS
-        run: cd embedded_htmls_for_moodle && tsc test.ts && node test.js
+        run: cd embedded_htmls_for_moodle && tsc updateGists.ts && node updateGists.js
         env: 
           patoken: ${{secrets.PATOKEN}}
