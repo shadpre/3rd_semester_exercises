@@ -85,7 +85,6 @@ With few exceptions I made all exercises and projects myself (it is noted when t
 ### My recommendations for taking this course
 - My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides - they simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
 
-
 ### Stuff i left out (aka. what I wish we had time for)
 - Containerization (Docker, Kubernetes, etc. This is covered in 4th semester DevOps and the bachelor's programme)
 - "alternative" request and response formats and HTTP verbs (we'll stick to GET, POST, PUT, DELETE and mostly work with JSON)

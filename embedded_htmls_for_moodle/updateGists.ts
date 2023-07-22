@@ -10,7 +10,7 @@ const octokit = new Octokit({
     request: {
         fetch: fetch
     },
-    auth: process.env.patoken,
+    auth: process.env.PATOKEN,
 });
 
 
