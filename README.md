@@ -7,15 +7,10 @@ The structure of this repository is the following:
 - Weeks are divided into individual "days", like "programming day 1" or "systems development day 2" of that particular week.
 - Each day will have a README.md file(embedded into Moodle) with the info about that particular day (presentation topics, links, documentation, etc.) The Exercises, however, must all be accessed from the repository.
 
-All exercises/projects have a task, a success criteria(goal) and a learning objective(why I made this / what I want you to understand).
-
-With few exceptions I made all exercises and projects myself (it is noted when that is not the case). If you have any problems, please reach out to me, I'd be delighted to help.
-
 Semester info is still on Moodle here: https://moodle.easv.dk/course/view.php?id=2906
 
 I recommend starting out by reading this file to get some basic info about this Programming II and Systems Development II.
 
-Please note, I also keep my presentations slides for each lecture in here, because I want a high level of transparency towards you. However, the slides are not meant to be "read" - they are just used for presenting, so I know what order I'm going to say/show things. If you want to read, please see the relevant literature+documentation for each lecture.
 
 **Best regards,**<br>
 **Alex**
@@ -81,17 +76,24 @@ Programming II (and Systems Development II for that matter) will be taught as a 
 
 It is my personal philisophy that mixing all 5 styles is beneficial for your learning outcome. I acknowledge personal working/studying preferences, and try to keep all styles of learning present throughout all major topics covered. 
 
+### How I design exercises
+
+All exercises/projects have a task, a success criteria(goal) and a learning objective(why I made this / what I want you to understand).
+
+With few exceptions I made all exercises and projects myself (it is noted when that is not the case). If you have any problems, please reach out to me, I'd be delighted to help.
+
 ### My recommendations for taking this course
-- 
+- My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides - they simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
 
 
 ### Stuff i left out (aka. what I wish we had time for)
 - Containerization (Docker, Kubernetes, etc. This is covered in 4th semester DevOps and the bachelor's programme)
-- "esoteric" request and response formats and HTTP verbs (we'll stick to GET, POST, PUT, DELETE and mostly work with JSON format)
+- "alternative" request and response formats and HTTP verbs (we'll stick to GET, POST, PUT, DELETE and mostly work with JSON)
 - API versioning (Covered in 4th semester Full-stack)
-- We'll work a lot with async in the frontend, but primarily I'll demonstrate synchronous programming on the backend.
+- We'll work a lot with async in the frontend with Promises, but primarily I'll demonstrate synchronous programming on the backend.
 - The course does not aim to make you an excellent Javascript developer, but functions as an introduction to making modern Javascript applications using a framework (Angular).
 - We will cover just enough HTML and light CSS to be able to use Angular.
+- We don't cover other types of API's than HTTP-based REST(-ish). (No gRPC, MQTT, SOAP, GraphQL, Kafka, Websockets. *Some of these may be covered in a very interesting elective subject I have in the works for 4th semester, though...🕵️)*
 - Noteworthy Nuget packages (.NET libraries) commonly used in enterprise IT I decided to leave out due to time constraints/better alternatives/not fit for course needs are the following (You may use these if you like for exam and projects, but I don't include these in lectures):
     - Automapper (And any other Mapping library for that matter)
     - Mediatr
