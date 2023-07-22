@@ -78,6 +78,7 @@ function myGistUpdateFunction(gistId, content) {
                     return [2 /*return*/, response.data.html_url];
                 case 2:
                     error_1 = _a.sent();
+                    console.error("Error creating gist for ".concat(content, ": ").concat(error_1));
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

@@ -2,9 +2,6 @@ import {Octokit} from "@octokit/rest";
 import {RestEndpointMethodTypes} from "@octokit/plugin-rest-endpoint-methods";
 import fetch from 'cross-fetch';
 import {values} from "./lookup";
-import {token} from './token';
-
-// The owner of the repository and the repository name
 const owner = 'uldahlalex';
 const repo = '3rd_semester_exercises';
 
@@ -13,15 +10,10 @@ const octokit = new Octokit({
     request: {
         fetch: fetch
     },
-    auth: token,
+    auth: process.env.patoken,
 });
 
-class DataBlueprint {
-    url?: string;
-    path?: string;
-}
 
-let data: DataBlueprint[] = []
 
 // Function to create or update a gist
 async function myGistUpdateFunction(gistId: string, content: string): Promise<string | undefined> {
@@ -40,7 +32,7 @@ async function myGistUpdateFunction(gistId: string, content: string): Promise<st
         console.log(`Created gist`);
         return response.data.html_url
     } catch (error) {
-        //console.error(`Error creating gist for ${filename}: ${error}`);
+        console.error(`Error creating gist for ${content}: ${error}`);
     }
 }
 
@@ -60,12 +52,9 @@ async function getReadmeFiles(): Promise<void> {
 
             if ('content' in readmeFile) {
                 const content = Buffer.from(readmeFile.content, 'base64').toString('utf8');
-                var gistId = getGistId(pair.url);
-                let url = await myGistUpdateFunction(gistId, content);
-                data.push({
-                   /* url: url,
-                    path: pair.path*/
-                })
+                let gistId = getGistId(pair.url);
+                await myGistUpdateFunction(gistId, content);
+
 
 
             }
@@ -79,7 +68,7 @@ async function getReadmeFiles(): Promise<void> {
 
 // Get all README.md files in the repository and create gists for them
 getReadmeFiles().then(res => {
-    console.log(data);
+    console.log('done')
 })
 function getGistId(url: string) {
     const parts = url.split('/');

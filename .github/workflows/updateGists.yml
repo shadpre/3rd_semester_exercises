@@ -1,0 +1,29 @@
+name: Update gist files
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install global dependencies
+        run: npm i -g typescript
+
+      - name: Install local dependencies
+        run: npm install
+        
+      - name: Build to JS
+        run: cd embedded_htmls_for_moodle && tsc test.ts && node test.js
+        env: 
+          patoken: ${{secrets.PATOKEN}}
