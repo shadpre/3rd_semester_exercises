@@ -24,6 +24,7 @@ using NUnit.Framework;
 public class InfrastructureExercises : IInfrastructureExercises
 {
     //The data source can be accessed: Helper.Datasource (public + static)
+    //Postgres running from docker compose file (if you have docker installed), you can use Helper.PostgresDockerDataSource
 
     public IEnumerable<Book> GetAllBooks()
     {
@@ -44,7 +45,7 @@ public class InfrastructureExercises : IInfrastructureExercises
             var sql = $@" 
             insert into library.books (title, publisher, cover_img_url) VALUES (@title, @publisher, @coverImgUrl);
             ";
-            using (var conn = Helper.DataSource.OpenConnection())
+            using (var conn = Helper.PostgresDockerDataSource.OpenConnection())
             {
                 conn.Execute(sql, book);
             }

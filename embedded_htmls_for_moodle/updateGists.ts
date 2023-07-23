@@ -32,7 +32,7 @@ async function myGistUpdateFunction(gistId: string, content: string): Promise<st
         console.log(`Created gist`);
         return response.data.html_url
     } catch (error) {
-        console.error(`Error creating gist for ${content}: ${error}`);
+        console.error(`Error creating gist for ${gistId}: ${error}`);
     }
 }
 

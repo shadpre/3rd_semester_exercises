@@ -7,6 +7,63 @@ namespace gettingstarted.week34.prg_1_Dapper;
 
 public static class Helper
 {
+    
+    public static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);
+
+    public static readonly string
+        ProperlyFormattedConnectionString = string.Format(
+            "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=true;MaxPoolSize=3",
+            Uri.Host,
+            Uri.AbsolutePath.Trim('/'),
+            Uri.UserInfo.Split(':')[0],
+            Uri.UserInfo.Split(':')[1],
+            Uri.Port > 0 ? Uri.Port : 5432);
+
+    public static readonly NpgsqlDataSource PostgresDockerDataSource = new NpgsqlDataSourceBuilder(
+        "Server=localhost;Database=postgres;User Id=postgres;Password=postgres;Port=5432;Pooling=true;MaxPoolSize=10;"
+    ).Build();
+
+
+    public static readonly NpgsqlDataSource DataSource =
+        new NpgsqlDataSourceBuilder(ProperlyFormattedConnectionString).Build();
+
+    public static void TriggerRebuild()
+    {
+        using (var conn = DataSource.OpenConnection())
+        {
+            conn.Execute(RebuildScript);
+        }
+    }
+
+    public static string MyBecause(object actual, object expected)
+    {
+        string expectedJson = JsonConvert.SerializeObject(expected, Formatting.Indented);
+        string actualJson = JsonConvert.SerializeObject(actual, Formatting.Indented);
+
+        return $"because we want these objects to be equivalent:\nExpected:\n{expectedJson}\nActual:\n{actualJson}";
+    }
+
+    public static Book MakeRandomBookWithId(int id)
+    {
+        return new Faker<Book>()
+            .RuleFor(b => b.BookId, id)
+            .RuleFor(b => b.Publisher, p => p.Company.CompanyName())
+            .RuleFor(b => b.Title, t => t.Lorem.Sentence())
+            .RuleFor(b => b.CoverImgUrl, "https://picsum.photos/200/300")
+            .Generate();
+    }
+
+    public static Author MakeRandomAuthorWithId(int id)
+
+    
+    {
+        return new Faker<Author>()
+            .RuleFor(a => a.AuthorId, id)
+            .RuleFor(a => a.Bithday, b => b.Date.Recent())
+            .RuleFor(a => a.Name, n => n.Name.FullName())
+            .RuleFor(a => a.Nationality, n => n.Lorem.Word())
+            .Generate();
+    }
     public static string RebuildScript = $@"DROP SCHEMA IF EXISTS library CASCADE;
 CREATE SCHEMA library;
 create sequence library.books_id_seq;
@@ -104,54 +161,4 @@ create table if not exists library.reading_list_items
             on delete cascade
 ); ";
 
-    public static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);
-
-    public static readonly string
-        ProperlyFormattedConnectionString = string.Format(
-            "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=true;MaxPoolSize=3",
-            Uri.Host,
-            Uri.AbsolutePath.Trim('/'),
-            Uri.UserInfo.Split(':')[0],
-            Uri.UserInfo.Split(':')[1],
-            Uri.Port > 0 ? Uri.Port : 5432);
-
-
-    public static readonly NpgsqlDataSource DataSource =
-        new NpgsqlDataSourceBuilder(ProperlyFormattedConnectionString).Build();
-
-    public static void TriggerRebuild()
-    {
-        using (var conn = DataSource.OpenConnection())
-        {
-            conn.Execute(RebuildScript);
-        }
-    }
-
-    public static string MyBecause(object actual, object expected)
-    {
-        string expectedJson = JsonConvert.SerializeObject(expected, Formatting.Indented);
-        string actualJson = JsonConvert.SerializeObject(actual, Formatting.Indented);
-
-        return $"because we want these objects to be equivalent:\nExpected:\n{expectedJson}\nActual:\n{actualJson}";
-    }
-
-    public static Book MakeRandomBookWithId(int id)
-    {
-        return new Faker<Book>()
-            .RuleFor(b => b.BookId, id)
-            .RuleFor(b => b.Publisher, p => p.Company.CompanyName())
-            .RuleFor(b => b.Title, t => t.Lorem.Sentence())
-            .RuleFor(b => b.CoverImgUrl, "https://picsum.photos/200/300")
-            .Generate();
-    }
-
-    public static Author MakeRandomAuthorWithId(int id)
-    {
-        return new Faker<Author>()
-            .RuleFor(a => a.AuthorId, id)
-            .RuleFor(a => a.Bithday, b => b.Date.Recent())
-            .RuleFor(a => a.Name, n => n.Name.FullName())
-            .RuleFor(a => a.Nationality, n => n.Lorem.Word())
-            .Generate();
-    }
 }

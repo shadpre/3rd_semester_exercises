@@ -39,8 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var rest_1 = require("@octokit/rest");
 var cross_fetch_1 = require("cross-fetch");
 var lookup_1 = require("./lookup");
-var token_1 = require("./token");
-// The owner of the repository and the repository name
 var owner = 'uldahlalex';
 var repo = '3rd_semester_exercises';
 // Initialize Octokit
@@ -48,14 +46,8 @@ var octokit = new rest_1.Octokit({
     request: {
         fetch: cross_fetch_1.default
     },
-    auth: token_1.token,
+    auth: process.env.PATOKEN,
 });
-var DataBlueprint = /** @class */ (function () {
-    function DataBlueprint() {
-    }
-    return DataBlueprint;
-}());
-var data = [];
 // Function to create or update a gist
 function myGistUpdateFunction(gistId, content) {
     return __awaiter(this, void 0, void 0, function () {
@@ -78,7 +70,7 @@ function myGistUpdateFunction(gistId, content) {
                     return [2 /*return*/, response.data.html_url];
                 case 2:
                     error_1 = _a.sent();
-                    console.error("Error creating gist for ".concat(content, ": ").concat(error_1));
+                    console.error("Error creating gist for ".concat(gistId, ": ").concat(error_1));
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -88,7 +80,7 @@ function myGistUpdateFunction(gistId, content) {
 // Function to recursively get all README.md files in a repository
 function getReadmeFiles() {
     return __awaiter(this, void 0, void 0, function () {
-        var _i, values_1, pair, readmeContentResponse, readmeFile, content, gistId, url, error_2;
+        var _i, values_1, pair, readmeContentResponse, readmeFile, content, gistId, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -111,11 +103,7 @@ function getReadmeFiles() {
                     gistId = getGistId(pair.url);
                     return [4 /*yield*/, myGistUpdateFunction(gistId, content)];
                 case 3:
-                    url = _a.sent();
-                    data.push({
-                    /* url: url,
-                     path: pair.path*/
-                    });
+                    _a.sent();
                     _a.label = 4;
                 case 4:
                     _i++;
@@ -132,7 +120,7 @@ function getReadmeFiles() {
 }
 // Get all README.md files in the repository and create gists for them
 getReadmeFiles().then(function (res) {
-    console.log(data);
+    console.log('done');
 });
 function getGistId(url) {
     var parts = url.split('/');

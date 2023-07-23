@@ -1,6 +1,6 @@
 ### Presentation topics:
 - More HTML (more elements for your toolbox)
 - Browsers
-- Some very basis styling
+- Some very basic styling
 
 ### Relevant literature & documentation:

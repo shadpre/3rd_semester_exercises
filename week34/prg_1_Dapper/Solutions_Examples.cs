@@ -4,7 +4,7 @@ namespace gettingstarted.week34.prg_1_Dapper;
 
 public class Solutions_Examples : IInfrastructureExercises
 {
-
+    
     public IEnumerable<Book> GetAllBooks()
     {
         var sql = @$"
