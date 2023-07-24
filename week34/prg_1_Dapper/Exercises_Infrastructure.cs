@@ -80,12 +80,16 @@ public class InfrastructureExercises : IInfrastructureExercises
         throw new NotImplementedException();
     }
     
-    //Tomas, if you're reading this, I just want to know your opinion on the first 4 exercises.
-    //If this "implement the method so the test passes" format feels nice, I'll make a bunch more
-    //This could be exericses like the following:
-    //Select all books on reading list for user with ID X
-    //Get top 5 books by most added to reading list
-    //etc.
+
+    //get singular book by ID
+    //make an upsert
+    //select all with conditional order by
+    //Add book to users reading list
+    //does book with title x exist
+    //count number of books author wrote
+    //Select all books on reading list for user with ID X (medium)
+    //Get top 5 books by most added to reading list //hard
+    //Get user with most books on their reading list
 
 
 

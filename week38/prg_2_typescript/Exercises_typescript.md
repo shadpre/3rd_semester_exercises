@@ -4,5 +4,10 @@ I recommend reading both of these "getting started" texts which explain typescri
 
 Typescript for Java/C# Programmers: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html 
 
-Now, the first exercise is to initialize a typescript workspace and get familiar with the tsconfig file
+
+### Exercise: Initialize a typescript project
+
+### Exercise: Compiling typescript to javascript
+
+### Exercise: Configuring tsconfig.json
 

@@ -58,7 +58,11 @@ https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this
 
 - Intenational ICS link: https://tinyurl.com/icsoutlookint
 
+
+
 ---
+
+
 
 ### How the course is taught
 
@@ -81,6 +85,14 @@ It is my personal philisophy that mixing all 5 styles is beneficial for your lea
 All exercises/projects have a task, a success criteria(goal) and a learning objective(why I made this / what I want you to understand).
 
 With few exceptions I made all exercises and projects myself (it is noted when that is not the case). If you have any problems, please reach out to me, I'd be delighted to help.
+
+### Contact & Help
+
+I can always be reached by mail at aup@easv.dk (please don't message me on Moodle)
+
+For tutor help, please contact the always knowledgeable, Tomas Sirotek @ toma2509@easv365.dk
+
+---
 
 ### My recommendations for taking this course
 - My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides - they simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.

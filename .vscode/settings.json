@@ -1,4 +1,219 @@
 {
     "dotnet.defaultSolution": "course.sln",
-    "workbench.tree.indent": 12
+    "workbench.tree.indent": 12,
+    "workspace.isHidden": true
+    "folder-path-color.folders": [
+        {
+            "color": "cyan",
+            "path": "Predefined color names: blue, magenta, red, cyan, green, yellow. GREEN=DONE"
+        },
+        {
+            "color": "green",
+            "path": "week33/prg_1_intro",
+        },
+        {
+            "color": "cyan",
+            "path": "week33/prg_2_nuget+structure"
+        },
+        {
+            "color": "cyan",
+            "path": "week33/prg_3_web_api"
+        },
+        {
+            "color": "cyan",
+            "path": "week33/prg_4_POST_PUT_DELETE"
+        },
+        {
+            "color": "cyan",
+            "path": "week33/prg_5_service"
+        },
+        {
+            "color": "cyan",
+            "path": "week34/prg_1_Dapper"
+        },
+        {
+            "color": "cyan",
+            "path": "week34/prg_2_Dapper_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week34/prg_3_Bogus"
+        },
+        {
+            "color": "cyan",
+            "path": "week34/prg_4_middleware_actionfilters"
+        },
+        {
+            "color": "cyan",
+            "path": "week35_make_a_backend_for_this_frontend"
+        },
+        {
+            "color": "cyan",
+            "path": "week35_make_a_backend_for_this_frontend/prg_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week35_make_a_backend_for_this_frontend/prg_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week35_make_a_backend_for_this_frontend/sys_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week35_make_a_backend_for_this_frontend/sys_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week36/prg_1_html"
+        },
+        {
+            "color": "cyan",
+            "path": "week36/prg_2_html_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week36/sys_1_github_actions"
+        },
+        {
+            "color": "cyan",
+            "path": "week36/sys_2_branching"
+        },
+        {
+            "color": "cyan",
+            "path": "week37/prg_1_js_intro"
+        },
+        {
+            "color": "cyan",
+            "path": "week37/prg_2_js_fetch"
+        },
+        {
+            "color": "cyan",
+            "path": "week37/sys_1_merging"
+        },
+        {
+            "color": "cyan",
+            "path": "week37/sys_2_processes_at_scale"
+        },
+        {
+            "color": "cyan",
+            "path": "week38/prg_1_npm+runtimes"
+        },
+        {
+            "color": "cyan",
+            "path": "week38/prg_2_typescript"
+        },
+        {
+            "color": "cyan",
+            "path": "week38/sys_1_pm_scripting"
+        },
+        {
+            "color": "cyan",
+            "path": "week38/sys_2_pm_scripting_workshop"
+        },
+        {
+            "color": "cyan",
+            "path": "week39/prg_1_angular_intro"
+        },
+        {
+            "color": "cyan",
+            "path": "week39/prg_2_angular_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week39/sys_1_e2e_testing_intro"
+        },
+        {
+            "color": "cyan",
+            "path": "week39/sys_2_writing_tests"
+        },
+        {
+            "color": "cyan",
+            "path": "week40/prg_1_ionic_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week40/prg_2_ionic_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week40/sys_1_automating_e2e"
+        },
+        {
+            "color": "cyan",
+            "path": "week40/sys_2_"
+        },
+        {
+            "color": "cyan",
+            "path": "week41_COMPULSORY_ASSIGNMENT/prg_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week41_COMPULSORY_ASSIGNMENT/prg_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week41_COMPULSORY_ASSIGNMENT/sys_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week41_COMPULSORY_ASSIGNMENT/sys_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week42_HOLIDAY"
+        },
+        {
+            "color": "cyan",
+            "path": "week43/prg_1_feature_inf"
+        },
+        {
+            "color": "cyan",
+            "path": "week43/prg_2_multimedia_content"
+        },
+        {
+            "color": "cyan",
+            "path": "week43/sys_1_methodologies_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week43/sys_2_methodologies_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week44/prg_1_3rd_party_apis"
+        },
+        {
+            "color": "cyan",
+            "path": "week44/prg_2_3rd_party_apis_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week44/sys_1_methodologies_3"
+        },
+        {
+            "color": "cyan",
+            "path": "week44/sys_2_exam_info_meeting"
+        },
+        {
+            "color": "cyan",
+            "path": "week45/prg_1_buffer"
+        },
+        {
+            "color": "cyan",
+            "path": "week45/prg_2_buffer"
+        },
+        {
+            "color": "cyan",
+            "path": "week45/sys_1_deployment_1"
+        },
+        {
+            "color": "cyan",
+            "path": "week45/sys_2_deployment_2"
+        },
+        {
+            "color": "cyan",
+            "path": "week46+_EXAM_PROJECT"
+        }
+    ]
 }
