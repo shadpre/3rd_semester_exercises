@@ -14,8 +14,10 @@
         border: none;
         text-align: left;
         outline: none;
-        font-size: 15px; /* Adjust size as needed */
-        font-weight: bold; /* Make the title bold */
+        font-size: 15px;
+        /* Adjust size as needed */
+        font-weight: bold;
+        /* Make the title bold */
         transition: 0.4s;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -42,10 +44,10 @@
     .panel {
         padding: 0 18px;
         background-color: #fff;
-        max-height: 0;
+        height: 0;
         overflow: hidden;
         width: 100%;
-        transition: max-height 0.2s ease-out;
+        transition: height 0.2s ease-out;
         border-radius: 5px;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -53,21 +55,161 @@
     .panel.open {
         max-height: none !important;
     }
-
 </style>
 
+
+
+
+<style>
+    .videocontainer {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+    }
+
+    .videobox {
+        flex: 0 0 auto;
+        width: 300px;
+        height: 250px;
+    }
+
+    .videobox:hover {
+        cursor: pointer;
+    }
+
+    .videobox img,
+    .videobox iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var boxes = document.querySelectorAll('.videobox');
+
+        boxes.forEach(box => {
+            box.addEventListener('mouseover', function (event) {
+                var target = event.target;
+                if (target.tagName === 'IMG' || target.tagName === 'IFRAME') {
+                    var clone = target.cloneNode(true);
+                    preview.innerHTML = '';
+                    preview.appendChild(clone);
+                }
+            });
+
+            box.addEventListener('mouseleave', function () {
+                preview.innerHTML = '';
+            });
+        });
+    });
+</script>
+<style>
+    .github-style-container {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 20px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .videocontainer-title {
+        color: #24292e;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .videocontainer {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+    }
+
+    .videobox {
+        flex: 0 0 auto;
+        width: 175px;
+        height: 175px;
+    }
+
+    .videobox:hover {
+        cursor: pointer;
+    }
+
+    .videobox img,
+    .videobox iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+    <div>
+        I made a video series in which I build, test and deploy a small
+        sample application using our tech stack. <a
+            href="https://www.youtube.com/@alexdevden">
+            Watch on Youtube</a>
+
+    </div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var boxes = document.querySelectorAll('.videobox');
+
+        boxes.forEach(box => {
+            box.addEventListener('mouseover', function (event) {
+                var target = event.target;
+                if (target.tagName === 'IMG' || target.tagName === 'IFRAME') {
+                    var clone = target.cloneNode(true);
+                    preview.innerHTML = '';
+                    preview.appendChild(clone);
+                }
+            });
+
+            box.addEventListener('mouseleave', function () {
+                preview.innerHTML = '';
+            });
+        });
+    });
+</script>
+<div class="preview"></div>
+<div class="github-style-container">
+    <div class="videocontainer">
+        <div class="videobox">
+            <iframe src="https://www.youtube.com/embed/xtFXKAKkWRo" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="videobox">
+            <iframe src="https://www.youtube.com/embed/5jqm7whDV0g" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="videobox">
+            <iframe src="https://www.youtube.com/embed/QdjNN4A3S88" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="videobox">
+            <iframe src="https://www.youtube.com/embed/ft7ReF80Tmk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="videobox">
+            <iframe src="https://www.youtube.com/embed/vQdVJaMII_A" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="videobox">
+            <i>(Deployment video:<br> <b>...coming soon)</b></i>
+        </div>
+    </div>
+
+</div>
+</div>
+
 <div>
-    <button style="background-color: coral;" class="accordion">Root README file &nbsp; &nbsp;<i><b>[start here]</b></i></button>
+    <span><b style="size: 20px;">All lectures from start to finish:</b>    <i>(Anything not an actual lecture is colored <b style="color: coral;">coral</b>)</i></span>
+
+    <button style="background-color: coral;" class="accordion">Root README file &nbsp; &nbsp;<i><b>[start
+                here]</b></i></button>
     <div class="panel">
+
+
         <script src="https://gist.github.com/uldahlalex/b26a5c651b645776d104157c4e588029.js"></script>
     </div>
 
-    <h1>All lectures from start to finish:</h1>
-    <i>(Anything not an actual lecture is colored <b style="color: coral;">coral</b>)</i>
-
-<!---
 
 
+    
     <button class="accordion">Monday, August 14th: Intro</button>
     <div class="panel">
         <script src="https://gist.github.com/uldahlalex/fa3bdc5edd43ea9fc3cbc34600abae7f.js"></script>
@@ -226,11 +368,13 @@
     <button style="background-color: coral;" class="accordion">Week 46+ EXAM PROJECT</button>
     <div class="panel">
         <script src="https://gist.github.com/uldahlalex/247b51db2ec392f1068769fa511296ab.js"></script>
-    </div>--->
-  
+    </div>
+
+    <!--
+
     <button class="accordion">Week 35, day 1: "Make a backend for this frontend" project</button>
 
-    <div class="panel">    
+    <div class="panel">
         <script src="https://gist.github.com/uldahlalex/e6fba418ec36e422a4757c62794e7af0.js"></script>
     </div>
 
@@ -346,22 +490,29 @@
         <script src="https://gist.github.com/uldahlalex/247b51db2ec392f1068769fa511296ab.js"></script>
     </div>
 
-
+-->
 </div>
 
 <script>
 
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        var accordions = document.getElementsByClassName("accordion");
+
+        for (var i = 0; i < accordions.length; i++) {
+            accordions[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+
+                /* Toggle between hiding and showing the active panel */
+                var panel = this.nextElementSibling;
+                if (panel.style.height) {
+                    panel.style.height = null;
+                } else {
+                    panel.style.height = panel.scrollHeight + "px";
+                }
+            });
+        }
+    });
 </script>
 </div>

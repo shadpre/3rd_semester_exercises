@@ -7,9 +7,17 @@ The structure of this repository is the following:
 - Weeks are divided into individual "days", like "programming day 1" or "systems development day 2" of that particular week.
 - Each day will have a README.md file(embedded into Moodle) with the info about that particular day (presentation topics, links, documentation, etc.) The Exercises, however, must all be accessed from the repository.
 
+I recommend you clone the repository 
+```
+git clone https://github.com/uldahlalex/3rd_semester_exercises
+```
+So you can take advantage of the exercise setups I have made *(such as tests to validate your work)*.
+
+You can also view the repository in an online editor if you just want a quick view without downloading: https://github.dev/uldahlalex/3rd_semester_exercises
+
 Semester info is still on Moodle here: https://moodle.easv.dk/course/view.php?id=2906
 
-I recommend starting out by reading this file to get some basic info about this Programming II and Systems Development II.
+I recommend starting out by reading (or at least having a quick glance at) this file to get some basic info about this Programming II and Systems Development II.
 
 
 **Best regards,**<br>

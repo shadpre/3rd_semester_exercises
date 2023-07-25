@@ -8,12 +8,9 @@
 
 **Recommended actions:**
 - Read (or at least glance oer) the root README.md file for practical info
-- Setting up your development environment (check tech stack part of course_info.md in the monorepo 
-https://github.com/uldahlalex/3rd_semester_exercises/blob/main/course_info.md )
-- Begin your 3rd semester development journey with "Getting started" exercises
-    - (clone the monorepo linked at the top on Moodle, or go to this link to find the files for today: 
-    https://github.com/uldahlalex/3rd_semester_exercises/tree/main/week33/prg_1_intro )
-- Continue with some basic C# method writing in the calculator exercises.
+- Setting up your development environment (check tech from the root README.md )
+- Begin your 3rd semester development journey with Exercises_gettingStarted.md ( https://github.com/uldahlalex/3rd_semester_exercises/blob/main/week33/prg_1_intro/Exercises_GettingStarted.md )
+- Continue with some basic C# method writing in the calculator exercises (same directory as the getting started exercises)
 - Many tools this semester are "Command-Line-Interface-only". Therefore I recommend installing some terminal emulator capable of running bash shell / similar environment. My recommendations are the following:
     - **Windows:** Git bash (emulation of UNIX environment). If you want a a more full-fledged experience, I recommend installing Windows Subsystem for Linux.
     - **Mac OS:** Terminal (uses zsh; very similar to bash, but technically different)
