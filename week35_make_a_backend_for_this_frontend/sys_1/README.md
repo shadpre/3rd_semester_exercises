@@ -14,4 +14,4 @@ Note: I will not cover how to write Postman tests, only how to use tests I have 
 
 **Recommended actions:**
 - Start building the backend for the frontend I made. See all the details in the document inside of the week 35 directory in the monorepo on Github.
-
+The assignment info can be found in the README here: https://github.com/uldahlalex/3rd_semester_exercises/tree/main/week35_make_a_backend_for_this_frontend 

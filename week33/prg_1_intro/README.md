@@ -7,7 +7,7 @@
 - The .NET CLI tool & build system
 
 **Recommended actions:**
-- Reading the course info practical infos for programming II and systems development II. 
+- Read (or at least glance oer) the root README.md file for practical info
 - Setting up your development environment (check tech stack part of course_info.md in the monorepo 
 https://github.com/uldahlalex/3rd_semester_exercises/blob/main/course_info.md )
 - Begin your 3rd semester development journey with "Getting started" exercises

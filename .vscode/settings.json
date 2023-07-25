@@ -1,7 +1,6 @@
 {
     "dotnet.defaultSolution": "course.sln",
     "workbench.tree.indent": 12,
-    "workspace.isHidden": true
     "folder-path-color.folders": [
         {
             "color": "cyan",
@@ -96,7 +95,7 @@
             "path": "week37/sys_2_processes_at_scale"
         },
         {
-            "color": "cyan",
+            "color": "green",
             "path": "week38/prg_1_npm+runtimes"
         },
         {
@@ -144,6 +143,10 @@
             "path": "week40/sys_2_"
         },
         {
+            "color": "green",
+            "path": "week41_COMPULSORY_ASSIGNMENT"
+        },
+        {
             "color": "cyan",
             "path": "week41_COMPULSORY_ASSIGNMENT/prg_1"
         },
@@ -160,7 +163,7 @@
             "path": "week41_COMPULSORY_ASSIGNMENT/sys_2"
         },
         {
-            "color": "cyan",
+            "color": "green",
             "path": "week42_HOLIDAY"
         },
         {

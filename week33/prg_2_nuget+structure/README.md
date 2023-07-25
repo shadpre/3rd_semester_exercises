@@ -9,7 +9,9 @@
 
 
 **Recommended actions:**
-- Doing the exercises in this directory (in the monorepo go to week 33/prg_2/ ). The hard LINQ exercises are by no means mandatory, but they can serve as a challenge.
+- Do exercises for Nuget, Projects & Solutions
+- Do the LINQ exercises (Make the NUnit tests pass style) [The hard exercises are by no means necessary, but they can serve as a challenge]
+- Do the NUnit exercises
 
 #### Relevant documentation, literature & links (high priority reading is in *italics*):
 - "using" directive: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive
