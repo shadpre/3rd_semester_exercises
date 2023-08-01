@@ -103,7 +103,7 @@ For tutor help, please contact the always knowledgeable, Tomas Sirotek @ toma250
 ---
 
 ### My recommendations for taking this course
-- My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides - they simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
+- My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides. They simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
 
 ### Stuff i left out (aka. what I wish we had time for)
 - Containerization (Docker, Kubernetes, etc. This is covered in 4th semester DevOps and the bachelor's programme)

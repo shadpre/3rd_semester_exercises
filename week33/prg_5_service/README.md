@@ -17,7 +17,7 @@
 ## My guide to setting environment variables:
 
 
-### Windows
+### Windows (without any particular terminal emulator)
 
 1. Right-click the **Computer** icon on your desktop or in File Explorer.
 2. Click **Properties**.
@@ -28,7 +28,21 @@
 7. For **Variable value**, enter the value of the environment variable.
 8. Click **OK** to close all dialog boxes.
 
-#### macOS and Linux
+### Windows with Git Bash
+
+1. Open a bash session and paste the following command and press enter:
+
+```bash
+echo 'export VARNEMT="value"' >> ~/.bash_profile
+```
+2. Now close down your terminal, open a new terminal, and to confirm the variable is present by writing the following command:
+
+```bash
+echo $VARNAME
+```
+And getting the value you set.
+
+#### macOS and Linux (using default terminal)
 
 1. Open a terminal.
 2. For temporary environment variables, enter `export VARNAME="value"`, replacing `VARNAME` with your environment variable name and `value` with the value of the environment variable. This will only set the variable for the duration of the current session.
