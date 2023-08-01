@@ -1,5 +1,5 @@
 
-### Level 0: Getting started
+### Getting started
 
 Start out by installing the .NET 8.0 runtime and SDK here: 
 https://dotnet.microsoft.com/en-us/download/dotnet/8.0
