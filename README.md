@@ -98,12 +98,13 @@ With few exceptions I made all exercises and projects myself (it is noted when t
 
 I can always be reached by mail at aup@easv.dk (please don't message me on Moodle)
 
-For tutor help, please contact the always knowledgeable, Tomas Sirotek @ toma2509@easv365.dk
+For tutor help, please contact the always knowledgeable, Tomas Sirotek via Discord: https://discordapp.com/users/707641281215725689 
+He can also be reached via email: toma2509@easv365.dk
 
 ---
 
 ### My recommendations for taking this course
-- My presentation slides are public, since I want total transparency, but I don't recommend you bother "reading" slides. They simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
+- My presentation slides are public (published just after end of presentations), since I want transparency. However, I don't recommend you bother "reading" slides. They simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
 
 ### Stuff i left out (aka. what I wish we had time for)
 - Containerization (Docker, Kubernetes, etc. This is covered in 4th semester DevOps and the bachelor's programme)
