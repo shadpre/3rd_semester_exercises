@@ -1,16 +1,22 @@
 ### Presentation topics:
-- Welcome to 3rd semester
-- Introduction to .NET & C#
-- Types
-- Making a console application
-- Properties, fields, attributes
-- The .NET CLI tool & build system
+- Part 1
+    - 3rd semester overview
+    - Practical info
+- Part II
+    - Introduction to .NET & C#
+    - Types
+    - Making a console application
+    - Properties
+    - The .NET CLI tool & build system
 
 **Recommended actions:**
 - Read (or at least glance oer) the root README.md file for practical info
 - Setting up your development environment (check tech from the root README.md )
 - Begin your 3rd semester development journey with Exercises_gettingStarted.md ( https://github.com/uldahlalex/3rd_semester_exercises/blob/main/week33/prg_1_intro/Exercises_GettingStarted.md )
 - Continue with some basic C# method writing in the calculator exercises (same directory as the getting started exercises)
+- If you've finished the Calculator pass-the-unit-test exercises, add the following:
+    - Properties along with accessors.
+    - Make the calculator a complex class by adding properties of other class types.
 - Many tools this semester are "Command-Line-Interface-only". Therefore I recommend installing some terminal emulator capable of running bash shell / similar environment. My recommendations are the following:
     - **Windows:** Git bash (emulation of UNIX environment). If you want a a more full-fledged experience, I recommend installing Windows Subsystem for Linux.
     - **Mac OS:** Terminal (uses zsh; very similar to bash, but technically different)
@@ -34,7 +40,6 @@ These first two weeks will be packed with C# programming and learning about API 
 - Download .NET 8: https://dotnet.microsoft.com/en-us/download/dotnet/8.0 (and also pick an IDE of your choice. 
 My personal recommendation is Rider by Jetbrains, which you have a student license for).
 - Introduction to .NET: https://learn.microsoft.com/en-us/dotnet/core/introduction
-- Attributes: https://learn.microsoft.com/en-us/dotnet/standard/attributes/
 - Info about built-in types: https://learn.microsoft.com/en-us/dotnet/standard/class-library-overview
 - Properties and accessors (& field comparison): https://learn.microsoft.com/en-us/dotnet/csharp/properties
 - .NET CLI overview: https://learn.microsoft.com/en-us/dotnet/core/tools/

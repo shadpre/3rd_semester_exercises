@@ -24,16 +24,18 @@ I recommend starting out by reading (or at least having a quick glance at) this 
 **Alex**
 
 
-### THE TECH STACK FOR THE ENTIRE SEMESTER
+# THE TECH STACK
  These are the stuff we'll be using (and with optional links to where these can be installed):
 
-- PostgreSQL (Get a fully managed DB server for free here: https://www.elephantsql.com/ [No payment details required]). You can also download postgres locally on your machine and use that if you wish to be completely offline (fully free and open source)
+- PostgreSQL (Get a fully managed DB server for free here: https://www.elephantsql.com/ [No payment details required]). You can also download and run postgres locally on your machine (I also left a docker-compose.yml file in the root folder if anyone wants to run using Docker).
 - .NET 8 https://dotnet.microsoft.com/en-us/download/dotnet/8.0 
 - Nodejs 18.x (install latest LTS version using Node Version Manager, see recommended tools below)
-- Angular 16 (install using npm bundled with Nodejs)
-- Ionic 7 (install using npm bundled with Nodejs)
+- Angular 16 (install CLI using npm bundled with Nodejs)
+- Ionic 7 (install CLI using npm bundled with Nodejs)
 - Postman HTTP Client ( https://www.postman.com/downloads/ )
-- Github for Actions (For CI/CD) (You don't need a paid plan)
+- Github for Actions (For CI/CD) (You don't need a paid plan - any Github account is fine)
+- Playwright E2E testing (available on npm)
+- Microsoft Azure (cloud service, sign up using "Azure for students" for a generous 12 month free tier)
 
 Tools i recommend installing that will make your lives easier:
 - Node version manager: 
@@ -55,6 +57,8 @@ A couple notes on tech stack decisions for those who are interested:
 https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this one. If I make any contributions, you can always pull my changes)
 - Playlist with videos for this course: https://www.youtube.com/playlist?list=PL10w4feZfunrIXJWTAtCgwOWCBhezxZlS
 
+- Official orders: https://www.easv.dk/app/uploads/academic-regulations/education/3050-2022-1-Computer%20Science.pdf
+(see the Systems Development 2 and Programming 2 sections for specific info about these courses)
 
 **Calendar links:**
 
@@ -70,6 +74,15 @@ https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this
 
 ---
 
+### Aim of the courses
+
+Although the learning goals are expressed in the official orders, I want to give a more straight-forward explanation of what we aim to do:
+
+- We'll learn how to build software systems with dedicated front- and backend applications geared towards web consumption rather than desktop applications.
+- The processes are geared towards modern  software development with emphasis on automation.
+- 
+
+---
 
 
 ### How the course is taught
