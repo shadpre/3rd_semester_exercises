@@ -18,6 +18,8 @@
 
 
 ### Windows (without any particular terminal emulator)
+<details  style="margin: 25px;">
+  <summary>Click here to expand</summary>
 
 1. Right-click the **Computer** icon on your desktop or in File Explorer.
 2. Click **Properties**.
@@ -27,8 +29,14 @@
 6. For **Variable name**, enter your environment variable name.
 7. For **Variable value**, enter the value of the environment variable.
 8. Click **OK** to close all dialog boxes.
+</details>
+
+
 
 ### Windows with Git Bash
+
+<details  style="margin: 25px;">
+  <summary>Click here to expand</summary>
 
 1. Open a bash session and paste the following command and press enter:
 
@@ -42,13 +50,23 @@ echo $VARNAME
 ```
 And getting the value you set.
 
-#### macOS and Linux (using default terminal)
+</details>
+
+
+### macOS and Linux (using default terminal)
+
+<details  style="margin: 25px;">
+  <summary>Click here to expand</summary>
 
 1. Open a terminal.
 2. For temporary environment variables, enter `export VARNAME="value"`, replacing `VARNAME` with your environment variable name and `value` with the value of the environment variable. This will only set the variable for the duration of the current session.
 3. For permanent environment variables, you need to edit either the `.bashrc` file (or `.zshrc` if using Z shell) in your home directory or the `/etc/environment` file and add `export VARNAME="value"` at the end of the file.
 
 After setting the environment variables, you can access them in C# using `System.Environment.GetEnvironmentVariable("VARNAME")`, where "VARNAME" is the name of your environment variable.
+
+</details>
+
+
 
 ---
 

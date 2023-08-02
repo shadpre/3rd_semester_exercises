@@ -22,6 +22,8 @@ you should be able to log the environment variable to the console (or use for an
 
 ### Exercise: Add a singleton service, and require this
 
+
+
 ---
 
 

@@ -27,6 +27,9 @@ I recommend starting out by reading (or at least having a quick glance at) this 
 # THE TECH STACK
  These are the stuff we'll be using (and with optional links to where these can be installed):
 
+ <details  style="margin: 25px;">
+  <summary><b style="font-size: 25px">Click here to see full list</b></summary>
+
 - PostgreSQL (Get a fully managed DB server for free here: https://www.elephantsql.com/ [No payment details required]). You can also download and run postgres locally on your machine (I also left a docker-compose.yml file in the root folder if anyone wants to run using Docker).
 - .NET 8 https://dotnet.microsoft.com/en-us/download/dotnet/8.0 
 - Nodejs 18.x (install latest LTS version using Node Version Manager, see recommended tools below)
@@ -49,6 +52,11 @@ A couple notes on tech stack decisions for those who are interested:
 - I generally prefer free and open source software, and want to give you the possibility to run your programs locally and offline before you deploy(hence why PostgreSQL). 
 - Everything I push is cross operating system compatible, and you can use just about any machine and operating system in the world without any difficulties. 
 - The most demanding programs are Rider and Datagrip - if these are too demanding for your machine, I recommend installing VS Code and using extensions instead of a full-fledged IDE, since it can run on much fewer resources: https://code.visualstudio.com/ 
+
+
+
+</details>
+
 
 ---
 
@@ -76,11 +84,10 @@ https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this
 
 ### Aim of the courses
 
-Although the learning goals are expressed in the official orders, I want to give a more straight-forward explanation of what we aim to do:
+Although the learning goals are expressed in the official orders, I want to give a more straight-forward explanation of what you will learn:
 
-- We'll learn how to build software systems with dedicated front- and backend applications geared towards web consumption rather than desktop applications.
-- The processes are geared towards modern  software development with emphasis on automation.
-- 
+You will learn how to build software systems comprised of dedicated front- and backend applications geared towards modern web consumption. There is a heavy emphasis on processes like automation, testing and software delivery. 
+
 
 ---
 
@@ -99,13 +106,7 @@ Programming II (and Systems Development II for that matter) will be taught as a 
 
 - **Video-based content** (Walkthrough-based, demonstrating, hands-on)
 
-It is my personal philisophy that mixing all 5 styles is beneficial for your learning outcome. I acknowledge personal working/studying preferences, and try to keep all styles of learning present throughout all major topics covered. 
-
-### How I design exercises
-
-All exercises/projects have a task, a success criteria(goal) and a learning objective(why I made this / what I want you to understand).
-
-With few exceptions I made all exercises and projects myself (it is noted when that is not the case). If you have any problems, please reach out to me, I'd be delighted to help.
+It is my personal philosophy that mixing all 5 styles is beneficial for your learning outcome. I acknowledge personal working/studying preferences, and try to keep all styles of learning present throughout all major topics covered. 
 
 ### Contact & Help
 
@@ -115,9 +116,11 @@ For tutor help, please contact the always knowledgeable, Tomas Sirotek via Disco
 He can also be reached via email: toma2509@easv365.dk
 
 ---
-
-### My recommendations for taking this course
+### FAQ
+Q: Can I have your slides?
 - My presentation slides are public (published just after end of presentations), since I want transparency. However, I don't recommend you bother "reading" slides. They simply exist in order to guide my presentations. If you want to read, please see the relevant literature+documentation for each lecture.
+
+---
 
 ### Stuff i left out (aka. what I wish we had time for)
 - Containerization (Docker, Kubernetes, etc. This is covered in 4th semester DevOps and the bachelor's programme)
