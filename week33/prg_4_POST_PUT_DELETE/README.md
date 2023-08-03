@@ -14,7 +14,6 @@
 **Recommended actions:**
 - Finish the "FirstWebAPI" from yesterday
 - Move on to MoreWebAPI
-- Finish with CustomDataAnnotations
 
 ### Relevant literature & documentation (high priority in *italics*):
 - Download Postman here: https://www.postman.com/downloads/

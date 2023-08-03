@@ -22,7 +22,15 @@ you should be able to log the environment variable to the console (or use for an
 
 ### Exercise: Add a singleton service, and require this
 
+**Task:** 
+1. Make a new class called TheDependency, and add this to the builder as a singleton. 
+2. Now make another class TheDependent and add this to the builder afterwards. 
+3. TheDependent should have a constructor that requires TheDependency. 
 
+**Success criteria:** 
+Call a method from TheDependency inside TheDependent to check that you successfully can access your TheDependency singleton service.
+
+**Learning objective:** You must know how to add classes as singleton services to the WebApplicationBuilder and call methods inside this service from other services.
 
 ---
 
@@ -36,13 +44,6 @@ you should be able to log the environment variable to the console (or use for an
 
 **Learning objective**: You should be familiar with the difference between service lifetimes.
 
-
-
----
-
-### Exercise: Request a service injected into the WebApplicationBuilder from the WebApplication.
-
-
 ---
 
 
@@ -50,9 +51,22 @@ you should be able to log the environment variable to the console (or use for an
 
 If you've made it this far, you should be ready for next week, where we're starting to work with Dapper.
 
-I want want to invest more time into sharpening your skills, try to identify one of these areas you want to improve, and follow the resources I linked:
+I want want to invest more time into sharpening your skills, try to identify one of these areas you want to improve, and follow the resources I linked: (yes, they are repetitive exercises)
 
-- Writing algorithms with C#:
-- Recapping some relational DB theory with PostgreSQL before starting Dapper: 
-- Becoming better with Bash CLI:
-- Sharpening API skills: 
+- Writing algorithms with C#: https://www.w3resource.com/csharp-exercises/ (find a chapter that has a comfortable difficulty)
+- Making SQL queries with PostgreSQL (before starting Dapper on Monday): https://www.w3resource.com/postgresql-exercises/ 
+- Sharpening API skills: I suggest adding more features to the CRUD API which you started yesterday (last exercise of yesterday). Here's an outline of a full CRUD you could aim for: 
+
+    - GET /entities - This endpoint is used to retrieve a list of entities. The server returns a JSON array of entity objects.
+
+    - GET /entities/{id} - This endpoint retrieves a specific entity by its unique ID. The server returns a JSON object representing the entity if it exists.
+
+    - POST /entities - This endpoint creates a new entity. The client sends a JSON object with the new entity's properties in the body of the request. The server usually returns the newly created entity.
+
+    - PUT /entities/{id} - This endpoint updates an existing entity identified by the unique ID. The client sends a JSON object with the updated properties in the body of the request. The server usually returns the updated entity. If the entity does not exist, the server could either create a new entity or return an error, depending on the API design.
+
+    - PATCH /entities/{id} - This endpoint partially updates an existing entity identified by the unique ID. Unlike PUT, it does not require sending the entire updated entity, only the properties that should be updated. The server usually returns the updated entity.
+
+    - DELETE /entities/{id} - This endpoint deletes an entity by its unique ID. The server usually returns a status indicating whether the deletion was successful.
+
+    - POST /entities/{id}/action - This is an example of how an API can expose specific actions that don't map to the standard CRUD operations. For example, "activate", "deactivate", or "reset" an entity.

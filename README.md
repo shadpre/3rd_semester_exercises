@@ -70,11 +70,15 @@ https://github.dev/uldahlalex/3rd_semester_exercises (I recommend you clone this
 
 **Calendar links:**
 
-- Danish calendar: https://tinyurl.com/easvdanish
+*Please note that the Outlook UI sometimes defaults to starting weeks on Sundays instead of Mondays, so remember to read the weekday carefully:*
+
+The time-tables can also be read on Moodle under general semester info (not the individual course pages).
+
+- Published Danish calendar (web): https://tinyurl.com/easvdanish
 
 - Danish ICS link: https://tinyurl.com/icsoutlooklink
 
-- International calendar: https://tinyurl.com/easvinternational
+- Published International calendar (web): https://tinyurl.com/easvinternational
 
 - Intenational ICS link: https://tinyurl.com/icsoutlookint
 

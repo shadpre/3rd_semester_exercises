@@ -1,5 +1,24 @@
-### Construct a Custom POST Endpoint
+### Get started with Postman
 
+**Task:** Go through the "Get started" section subtopics:
+- Welcome to Postman
+- Postman first steps
+    - Overview
+    - Get the Postman app
+    - Send your first APi request
+
+Then move on to "sending requests", subtopics:
+- Building requests
+- Receiving responses
+- Grouping requests in collections
+- Using variables
+https://learning.postman.com/docs/getting-started/first-steps/overview/
+
+**Success criteria:** You should feel somewhat comfortable with using Postman to send HTTP requests.
+
+**Learning objective:** The basics of navigating and using Postman to send HTTP requests and analyze responses.
+
+### Construct a Custom POST Endpoint
 
 
 **Task:** Create a POST endpoint that takes a JSON body/payload and deserializes as a custom C# object. Return with 201 response + the same JSON as client sent.
@@ -35,15 +54,35 @@
 
 ### [ApiController] and exceptions
 
----
+**Task:** Annotate a controller class with the [ApiController] attribute.
+Return a "Bad request" response to a client by throwing an exception.
 
+**Success criteria:** You should get a 400 status code (Bad request).
+
+**Learning objective**: You should be able to make use of the [ApiController] attribute in order to send appropriate responses to the requester.
+
+---
 
 ### Make custom data annotations
 
+**Task:** Make data annotations for a request DTO class. Now make a request that will make the data validators fail while using [ApiController].
+
+**Success criteria:** A request that you expect to fail should return a 400 Bad Request status code. (without an exception being thrown)
+
+**Learning objective:** You must know how to perform server-side data validation using Data annotations and return appropriate responses based on this.
+
 ---
 
-### Make a custom DTO response class
-
----
 
 ### Make a CRUD web API with in-memory database
+
+**Task:** Now that you know the basics of making API's, make a Web API which performs basic CRUD operations (without a database - just keep the data in memory).
+
+The following features should be supported:
+
+- Create new data
+- Delete data
+- Update data
+- Get data
+
+Basic server-side data validation must be existent (return status code 400 if your "rules" are violated).
