@@ -2,40 +2,48 @@
 
 
 
-- **Task:** Create a new POST endpoint with a custom route, response object, and request body. The response should contain status code 201 (indicating a CREATED response).
-- **Success Criteria:** Using an HTTP client (like Swagger), you should be able to send JSON and receive a 201 response.
+**Task:** Create a POST endpoint that takes a JSON body/payload and deserializes as a custom C# object. Return with 201 response + the same JSON as client sent.
+**Success Criteria:** Using an HTTP client (like Swagger), you should be able to send JSON and receive a 201 response along with the same body.
 
-**Objective:** Learn to transfer JSON as payload to an endpoint, understand how to set a custom route, use parameter binding from JSON to a C# object (and also serialization + deserialization), and learn how to set a status code.
+**Learning objective:** You must know to make a POST endpoint that takes a custom DTO in the payload.
 
 ---
 
-### Build a GET Endpoint with a Custom Data Transfer Object (DTO)
+### GET with Custom (DTO) composed of different query params
 
-**Objective:** Understand how to pass query parameters and parameter bind them to a custom class using ([FromQuery] ClassName objectIdentifier).
+**Task:** Construct a new GET endpoint that accepts an input/parameter of a custom type (data transfer object). This object should bind parameters from two or more query parameters (not the payload/body). The HTTP response body should include the data transfer object. (
+```c#
+[FromQuery] MyClass myObject
+```
+).
 
-- **Task:** Construct a new GET endpoint that accepts an input/parameter of a custom type (data transfer object). This object should bind parameters from two or more query parameters (not the payload/body). The HTTP response body should include the data transfer object.
-- **Success Criteria:** You should be able to send an HTTP GET request with query parameters (api/route?queryparam=value&otherqueryparam=othervalue) and receive a JSON response containing the exact query parameters.
+**Success Criteria:** You should be able to send an HTTP GET request with query parameters (api/route?queryparam=value&otherqueryparam=othervalue) and receive a JSON response containing the exact query parameters.
+
+**Learning objective**: Using more complex parameter binding.
 
 ---
 
 ### Implement Data Annotations for the DTO
 
 
-- **Task:** Set up Data Annotations for the Data Transfer Object from the previous exercise. Ensure that you either use the [ApiController] attribute for the controller class or apply a custom Action Filter or manual trigger using ModelState.IsValid.
-- **Success Criteria:** You should receive a status 400 response code when the data annotations are breached.
+**Task:** Request a custom DTO. The DTO must have data annotations. Return 400 if the validation rules are violated. (Use [ApiController] attribute for the controller for "automatic" validation check)
+**Success Criteria:** You should receive a status 400 response code when the data annotations are violated.
 
-**Objective:** Perform server-side validation of client data—in this case, client data supplied inside of the query parameters instead of payload/body.
-
-
+**Learning Objective:** Perform server-side data validation of client data.
 
 ---
 
-### Create a Header-Reading Endpoint 
+### [ApiController] and exceptions
+
+---
 
 
+### Make custom data annotations
 
-- **Task:** Construct an endpoint that reads from a request header named `supercoolrequestheader`. Respond with a header named `supercoolresponseheader`, with the value taken from the request header "supercoolrequestheader".
-- **Success Criteria:** You should receive the same value back using the specified request header.
+---
 
-**Objective:** Learn how to read from and write to request and response headers, including "self-named" headers.
+### Make a custom DTO response class
 
+---
+
+### Make a CRUD web API with in-memory database

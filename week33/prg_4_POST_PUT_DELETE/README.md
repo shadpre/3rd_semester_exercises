@@ -2,7 +2,7 @@
 
 - Postman HTTP client (limited to building basic HTTP requests with a JSON body)
 - POST, PUT & DELETE requests
-- Parameter binding & reading request data
+- More parameter binding
 - Making HTTP responses
 - Transfer objects
 - Response status codes

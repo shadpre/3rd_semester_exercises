@@ -7,9 +7,10 @@
 - HTTP servers [Limited to GET endpoints]
     - .NET Web API 
 - JSON & serialization + deserialization
+- Parameter binding
 
 **Recommended actions:**
-- Prioritize completing Nuget_Projects_Solutions from yesterday
+- Prioritize completing the exercises from yesterday (except for hard LINQ)
 - Then do the exercises "FirstWebAPI"
 
 
@@ -19,5 +20,6 @@
 - .NET docs: Controller-based Web APIs: https://learn.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0 *(High priority: Overview )*
 - *Many of the concepts we're working with today is demonstrated in my video series (video 1):* https://www.youtube.com/watch?v=xtFXKAKkWRo&ab
 - *Mozilla docs on JSON*: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+- Although this example is using Minimal API and not controllers, it covers how to perform parameter binding (almost the exact same with controllers): https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
 
 If you're curious about the "REST" debate and how to describe the type of application we're building, this article may be interesting to you: https://htmx.org/essays/how-did-rest-come-to-mean-the-opposite-of-rest/ (warning: does contain many abbreviations, acronyms, API terminology we haven't encountered yet, but I want to share it nevertheless)

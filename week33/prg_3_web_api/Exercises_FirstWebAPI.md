@@ -36,10 +36,80 @@ Bonus: Why do you think .NET Web API is capable of "automatically" adding your C
 
 ### GET entity/{id}
 
-**Task:** Make a GET endpoint that requests some entity with ID 42 using a route segment. 
+**Task:** Make a GET endpoint that can read a route segment (for instance use 
 
-**Success criteria:**
+```C#
+[FromRoute] int id
+```
+in the method parameter
+). Return the ID to the requester.
+
+**Success criteria:** When inserting ID 42 in Swagger as route segment, you should be 
 
 
-**Learning objective:**
+**Learning objective:** You must know how to read/get data from a route segment which the client passes
+
+---
+
+### GET entity?someKey=someValue
+
+**Task:** Make a GET endpoint that can read a query parameter using:
+
+```c#
+[FromQuery]string someValue
+```
+Return the value to the client.
+
+**Success criteria:** When inserting hello world as a query parameter, you should get that value returned.
+
+**Learning objective:** You must know how to read/get data from a query parameter which the client passes
+
+---
+
+### GET with header attached
+
+**Task:** Make a GET endpoint that can read a header using:
+
+```c#
+[FromHeader]string someValue
+```
+Return the value to the client.
+(Pick an obscure random name to make sure it is a value you manually left there in Swagger/other HTTP client)
+
+**Success criteria:** When inserting some header value, you should get the value back.
+
+**Learning objective:** You must know how to read/get data from an HTTP header which the client passes
+
+---
+
+### Setting some custom header
+
+**Task:** Use the HttpContext class to set some HTTP response header in some endpoint.
+
+**Success criteria:** Send a request to that endpoint with Postman and inspect the response headers. The value should be present.
+
+**Learning objective:** You must know how to use the HttpContext to modify http responses.
+
+---
+
+### Response JSON
+
+**Task:** Return some JSON object to the client in the body(payload) by returning a C# object.
+
+**Success criteria**: If the serialization is successful, the client should get the object values as JSON.
+
+**Learning objective**: You must know how to set the HTTP response body.
+
+---
+
+### Response status code
+
+**Task:** Manually set the response status code. You can do this using HttpContext. Pick an obscure status code like 418, so you don't accidentally pick the same code as the default.
+
+**Success criteria**: You should see the expected code client side.
+
+**Learning objective**: You must know how to indicate the response status to the client by using status codes.
+
+---
+
 
