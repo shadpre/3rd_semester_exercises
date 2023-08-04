@@ -12,3 +12,15 @@
 ### Literature & documentation (high priority reading is in *italics*):
 - ElephantSQL getting started: https://www.elephantsql.com/docs/index.html
 - *Npgsql docs: Getting started:* https://www.npgsql.org/doc/index.html *(I recommend reading this one, installation and basic usage chapters)*
+
+### Relevant info about the exercises:
+- This is a "implement the method and make the test pass"-style exercise
+  - The tests not only check if you correctly return - they check that you modify the database correctly
+  - There are guided solutions to many of the exercises
+  - They are in increasing order of difficulty
+- In order to run tests which require a database connection, you must add a connection string to your test runner
+  - In Jetbrains Rider, Settings -> Build, execution, deployment -> Unit testing -> Test runner, scroll down to environment variables, add pgconn with you connection string value.
+  - Just use (one of) the data source(s) located in the Helper.cs class to open a connection
+- There is a database schema which you must use
+  - The database is automatically rebuilt using this schema in the beginning of every test
+  - There are query models in the Models.cs file

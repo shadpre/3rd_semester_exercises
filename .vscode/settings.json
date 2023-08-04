@@ -6,6 +6,10 @@
             "color": "cyan",
             "path": "Predefined color names: blue, magenta, red, cyan, green, yellow. GREEN=DONE"
         },
+                {
+            "color": "green",
+            "path": "week33",
+        },
         {
             "color": "green",
             "path": "week33/prg_1_intro",

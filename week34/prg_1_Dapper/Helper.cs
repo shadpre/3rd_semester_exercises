@@ -53,9 +53,19 @@ public static class Helper
             .Generate();
     }
 
-    public static Author MakeRandomAuthorWithId(int id)
+    public static EndUser MakeRandomUserWithId(int id)
+    {
+        return new Faker<EndUser>()
+            .RuleFor(u => u.EndUserId, id)
+            .RuleFor(u => u.PasswordHash, h => h.Random.Hash())
+            .RuleFor(u => u.Salt, h => h.Random.String(32))
+            .RuleFor(u => u.Email, e => e.Person.Email)
+            .RuleFor(u => u.PravatarId, pr => pr.Random.Int(50))
+            .RuleFor(u => u.Status, st => st.Random.Word())
+            .Generate();
+    }
 
-    
+    public static Author MakeRandomAuthorWithId(int id)
     {
         return new Faker<Author>()
             .RuleFor(a => a.AuthorId, id)
@@ -160,5 +170,6 @@ create table if not exists library.reading_list_items
         foreign key (book_id) references library.books
             on delete cascade
 ); ";
+
 
 }
