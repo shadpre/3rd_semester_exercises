@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace gettingstarted.week34.prg_1_Dapper.Exercises;
 
+[TestFixture]
 public class GetAllBooksExercise
 {
     public IEnumerable<Book> GetAllBooks()
@@ -26,14 +27,14 @@ public class GetAllBooksExercise
             var sql = $@" 
             insert into library.books (title, publisher, cover_img_url) VALUES (@title, @publisher, @coverImgUrl);
             ";
-            using (var conn = Helper.PostgresDockerDataSource.OpenConnection())
+            using (var conn = Helper.DataSource.OpenConnection())
             {
                 conn.Execute(sql, book);
             }
         }
 
         //ACT
-        var actual = GetAllBooks();
+        var actual = GetAllBooksSolution();
 
         // Assert
         actual.Should().BeEquivalentTo(expected, Helper.MyBecause(actual, expected));

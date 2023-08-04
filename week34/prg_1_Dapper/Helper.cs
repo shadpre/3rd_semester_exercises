@@ -60,8 +60,9 @@ public static class Helper
             .RuleFor(u => u.PasswordHash, h => h.Random.Hash())
             .RuleFor(u => u.Salt, h => h.Random.String(32))
             .RuleFor(u => u.Email, e => e.Person.Email)
-            .RuleFor(u => u.PravatarId, pr => pr.Random.Int(50))
+            .RuleFor(u => u.ProfileImgUrl, pr => pr.Random.Int(50))
             .RuleFor(u => u.Status, st => st.Random.Word())
+            .RuleFor(u => u.Role, r => r.Random.Word())
             .Generate();
     }
 

@@ -12,10 +12,11 @@ public class EndUser
 {
     public string? Email { get; set; }
     public string? Status { get; set; }
+    public string? Role { get; set; }
     public int EndUserId { get; set; }
     public string? PasswordHash { get; set; }
     public string? Salt { get; set; }
-    public int PravatarId { get; set; }
+    public int ProfileImgUrl { get; set; }
 }
 
 public class BookWithAuthors

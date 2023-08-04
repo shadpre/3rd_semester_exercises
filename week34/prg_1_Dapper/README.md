@@ -24,3 +24,13 @@
 - There is a database schema which you must use
   - The database is automatically rebuilt using this schema in the beginning of every test
   - There are query models in the Models.cs file
+
+
+
+    //make an upsert
+    //does book with title x exist
+    // add author to books authors
+    //count number of books author wrote
+    //Select all books on reading list for user with ID X (medium)
+    //Get top 5 books by most added to reading list //hard
+    //Get user with most books on their reading list

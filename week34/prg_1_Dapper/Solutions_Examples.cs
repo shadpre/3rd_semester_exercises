@@ -2,13 +2,8 @@ using Dapper;
 
 namespace gettingstarted.week34.prg_1_Dapper;
 
-public class Solutions_Examples : IInfrastructureExercises
+public class Solutions_Examples
 {
-    
-
-    
-
-
     public Book UpdateBookById(int bookIdToUpdate, string newTitle, string newPublisher, string newCoverImgUrl)
     {
         var sql = @$"
@@ -24,6 +19,7 @@ RETURNING
             return conn.QueryFirst<Book>(sql, new { bookIdToUpdate, newTitle, newPublisher, newCoverImgUrl });
         }
     }
+
     public bool DeleteBookById(int bookId)
     {
         var sql = $@"
@@ -50,5 +46,4 @@ GROUP BY books.book_id, books.title;";
             return conn.Query<BookWithAuthors>(sql);
         }
     }
-
 }

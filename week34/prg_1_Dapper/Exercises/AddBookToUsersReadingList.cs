@@ -25,7 +25,7 @@ INSERT INTO library.reading_list_items (book_id, user_id) VALUES (@bookId, @user
         var book = Helper.MakeRandomBookWithId(1);
 
         var insertUser =
-            "INSERT INTO library.end_users ( email, status, password_hash, salt, role, pravatar_id) VALUES ( @email, @status, @passwordHash, @salt, @role, @pravatarId);";
+            "INSERT INTO library.end_users (email, status, password_hash, salt, role, profile_img_url) VALUES ( @email, @status, @passwordHash, @salt, @role, @profileImgUrl);";
         var insertBook =
             "INSERT INTO library.books (title, publisher, cover_img_url) VALUES (@title, @publisher, @coverImgUrl);";
 
