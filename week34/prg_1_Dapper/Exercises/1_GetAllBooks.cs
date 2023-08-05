@@ -15,7 +15,6 @@ public class GetAllBooksExercise
     [Test]
     public void GetAllBooksTest()
     {
-        //ARRANGE
         Helper.TriggerRebuild();
         var expected = new List<Book>();
         for (var i = 1; i < 10; i++)
@@ -33,10 +32,18 @@ public class GetAllBooksExercise
             }
         }
 
-        //ACT
-        var actual = GetAllBooksSolution();
+        object actual;
 
-        // Assert
+        //Change the mode by changing Helper.Mode value in Helper.cs, don't modify the test
+        if (Helper.Mode == "Guided Solution")
+        {
+            actual = GetAllBooksSolution();
+        }
+        else
+        {
+            actual = GetAllBooks();
+        }
+
         actual.Should().BeEquivalentTo(expected, Helper.MyBecause(actual, expected));
     }
 

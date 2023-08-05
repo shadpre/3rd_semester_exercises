@@ -5,8 +5,10 @@ using Npgsql;
 
 namespace gettingstarted.week34.prg_1_Dapper;
 
+
 public static class Helper
 {
+    public static string Mode = "Guided Solution";
     
     public static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);
 
@@ -57,8 +59,8 @@ public static class Helper
     {
         return new Faker<EndUser>()
             .RuleFor(u => u.EndUserId, id)
-            .RuleFor(u => u.PasswordHash, h => h.Random.Hash())
-            .RuleFor(u => u.Salt, h => h.Random.String(32))
+            .RuleFor(u => u.PasswordHash, h => h.Random.Word())
+            .RuleFor(u => u.Salt, h => h.Random.Word())
             .RuleFor(u => u.Email, e => e.Person.Email)
             .RuleFor(u => u.ProfileImgUrl, pr => pr.Random.Int(50))
             .RuleFor(u => u.Status, st => st.Random.Word())
@@ -75,6 +77,7 @@ public static class Helper
             .RuleFor(a => a.Nationality, n => n.Lorem.Word())
             .Generate();
     }
+
     public static string RebuildScript = $@"DROP SCHEMA IF EXISTS library CASCADE;
 CREATE SCHEMA library;
 create sequence library.books_id_seq;
@@ -171,6 +174,4 @@ create table if not exists library.reading_list_items
         foreign key (book_id) references library.books
             on delete cascade
 ); ";
-
-
 }

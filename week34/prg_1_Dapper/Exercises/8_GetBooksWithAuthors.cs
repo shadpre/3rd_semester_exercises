@@ -5,13 +5,17 @@ using NUnit.Framework;
 
 public class GetBooksWithAuthorsExercise
 {
-    
-    //This one is harder, so only proceed if you're ready for a more challenging exercise
+    /// <summary>
+    /// Hint: This requires a join between 3 tables.
+    /// Another hint: Use the array_agg() to get the author names as an array
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public IEnumerable<BookWithAuthors> GetBooksWithAuthors()
     {
         throw new NotImplementedException();
     }
-    
+
     [Test]
     public void TestGetBooksWithAuthors()
     {
@@ -59,10 +63,36 @@ public class GetBooksWithAuthorsExercise
         };
 
 
-        //ACT
-        var actual = GetBooksWithAuthors();
+        object actual;
+
+        //Change the mode by changing Helper.Mode value in Helper.cs, don't modify the test
+        if (Helper.Mode == "Guided Solution")
+        {
+            //ACT
+            actual = GetBooksWithAuthorsSolution();
+        }
+        else
+        {
+            actual = GetBooksWithAuthors();
+        }
 
         //ASSERT
         actual.Should().BeEquivalentTo(expected, Helper.MyBecause(actual, expected));
+    }
+
+    public IEnumerable<BookWithAuthors> GetBooksWithAuthorsSolution()
+    {
+        var sql = $@"
+SELECT books.book_id as {nameof(BookWithAuthors.BookId)}, 
+       title as {nameof(BookWithAuthors.Title)}, 
+       array_agg(library.authors.name) as {nameof(BookWithAuthors.Authors)}
+FROM library.books 
+    JOIN library.author_wrote_book_items as junction on books.book_id = junction.book_id
+    JOIN library.authors on junction.author_id = authors.author_id
+GROUP BY books.book_id, books.title;";
+        using (var conn = Helper.DataSource.OpenConnection())
+        {
+            return conn.Query<BookWithAuthors>(sql);
+        }
     }
 }

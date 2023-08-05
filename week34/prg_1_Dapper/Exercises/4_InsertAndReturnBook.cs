@@ -19,7 +19,19 @@ public class InsertAndReturnBookExercise
         Helper.TriggerRebuild();
         var book = Helper.MakeRandomBookWithId(1);
         //ACT
-        var actual = InsertAndReturnBook(book.Title, book.Publisher, book.CoverImgUrl);
+        
+        object actual;
+        
+        //Change the mode by changing Helper.Mode value in Helper.cs, don't modify the test
+        if (Helper.Mode == "Guided Solution")
+        {
+             actual = InsertAndReturnBookSolution(book.Title, book.Publisher, book.CoverImgUrl);
+        }
+        else
+        {
+            actual = InsertAndReturnBook(book.Title, book.Publisher, book.CoverImgUrl);
+
+        }
 
         //ASSERT
         actual.Should().BeEquivalentTo(book, Helper.MyBecause(actual, book));

@@ -17,6 +17,7 @@
 - This is a "implement the method and make the test pass"-style exercise
   - The tests not only check if you correctly return - they check that you modify the database correctly
   - There are guided solutions to many of the exercises
+    - You can switch between guided solution and your solution for tests by changing the value in Helper.cs (called "mode")
   - They are in increasing order of difficulty
 - In order to run tests which require a database connection, you must add a connection string to your test runner
   - In Jetbrains Rider, Settings -> Build, execution, deployment -> Unit testing -> Test runner, scroll down to environment variables, add pgconn with you connection string value.
@@ -27,10 +28,8 @@
 
 
 
-    //make an upsert
-    //does book with title x exist
     // add author to books authors
     //count number of books author wrote
-    //Select all books on reading list for user with ID X (medium)
-    //Get top 5 books by most added to reading list //hard
+    //Select all books on reading list for user with ID X
+    //Get top 5 books by most added to reading list
     //Get user with most books on their reading list

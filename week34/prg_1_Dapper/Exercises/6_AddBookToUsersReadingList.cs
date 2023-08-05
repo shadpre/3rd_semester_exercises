@@ -5,18 +5,21 @@ using NUnit.Framework;
 
 public class AddBookToUsersReadingListExercise
 {
+
+    /// <summary>
+    /// Add a book to the reading list by adding a row to the junction table (bookId + userId)
+    /// return true in case of a successful insert
+    /// </summary>
+    /// <param name="bookId"></param>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public bool AddBookToUsersReadingList(int bookId, int userId)
     {
-        var sql = $@"
-INSERT INTO library.reading_list_items (book_id, user_id) VALUES (@bookId, @userId);
-";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.Execute(sql, new { bookId, userId }) == 1;
-        }
+        throw new NotImplementedException();
     }
-
-
+    
+    
     [Test]
     public void AddBookToUsersReadingListTest()
     {
@@ -35,7 +38,18 @@ INSERT INTO library.reading_list_items (book_id, user_id) VALUES (@bookId, @user
             conn.Execute(insertBook, book);
         }
 
-        var actual = AddBookToUsersReadingList(book.BookId, user.EndUserId);
+        bool actual;
+
+        //Change the mode by changing Helper.Mode value in Helper.cs, don't modify the test
+        if (Helper.Mode == "Guided Solution")
+        {
+            actual = AddBookToUsersReadingListSolution(book.BookId, user.EndUserId);
+        }
+        else
+        {
+            actual = AddBookToUsersReadingList(book.BookId, user.EndUserId);
+        }
+
         using (var conn = Helper.DataSource.OpenConnection())
         {
             var onReadingList =
@@ -43,6 +57,17 @@ INSERT INTO library.reading_list_items (book_id, user_id) VALUES (@bookId, @user
                     "SELECT COUNT(*) FROM library.reading_list_items WHERE book_id = @bookId AND user_id = @userId;",
                     new { userId = user.EndUserId, bookId = book.BookId }) == 1;
             (actual && onReadingList).Should().BeTrue();
+        }
+    }
+
+    public bool AddBookToUsersReadingListSolution(int bookId, int userId)
+    {
+        var sql = $@"
+     INSERT INTO library.reading_list_items (book_id, user_id) VALUES (@bookId, @userId);
+     ";
+        using (var conn = Helper.DataSource.OpenConnection())
+        {
+            return conn.Execute(sql, new { bookId, userId }) == 1;
         }
     }
 }

@@ -8,24 +8,7 @@ public class GetFullBookDetailsExercise
 {
     public FullBookDetails GetFullBookDetails(int bookid)
     {
-        var sql = $@"
-SELECT
-    library.books.book_id as {nameof(Book.BookId)}, 
-    library.books.title as {nameof(Book.Title)}, 
-    library.books.publisher as {nameof(Book.Publisher)}, 
-    library.books.cover_img_url as {nameof(Book.CoverImgUrl)},
-    array_agg(library.authors.name) as {nameof(BookWithAuthors.Authors)}
-FROM library.books
-join library.author_wrote_book_items awbi on books.book_id = awbi.book_id
-join library.authors on authors.author_id = awbi.author_id
-WHERE library.books.book_id = @bookId
-GROUP BY books.book_id, title, publisher, cover_img_url;
-
-";
-        using (var conn = Helper.DataSource.OpenConnection())
-        {
-            return conn.QueryFirst<FullBookDetails>(sql, new { bookid });
-        }
+        throw new NotImplementedException();
     }
 
     [Test]
@@ -61,8 +44,41 @@ GROUP BY books.book_id, title, publisher, cover_img_url;
             CoverImgUrl = mockBook.CoverImgUrl
         };
 
-        var actual = GetFullBookDetails(1);
+        object actual;
+
+        //Change the mode by changing Helper.Mode value in Helper.cs, don't modify the test
+        if (Helper.Mode == "Guided Solution")
+        {
+            actual = GetFullBookDetailsSolution(1);
+        }
+        else
+        {
+            actual = GetFullBookDetails(1);
+        }
 
         actual.Should().BeEquivalentTo(expected);
+    }
+
+
+    public FullBookDetails GetFullBookDetailsSolution(int bookid)
+    {
+        var sql = $@"
+SELECT
+    library.books.book_id as {nameof(Book.BookId)}, 
+    library.books.title as {nameof(Book.Title)}, 
+    library.books.publisher as {nameof(Book.Publisher)}, 
+    library.books.cover_img_url as {nameof(Book.CoverImgUrl)},
+    array_agg(library.authors.name) as {nameof(BookWithAuthors.Authors)}
+FROM library.books
+join library.author_wrote_book_items awbi on books.book_id = awbi.book_id
+join library.authors on authors.author_id = awbi.author_id
+WHERE library.books.book_id = @bookId
+GROUP BY books.book_id, title, publisher, cover_img_url;
+
+";
+        using (var conn = Helper.DataSource.OpenConnection())
+        {
+            return conn.QueryFirst<FullBookDetails>(sql, new { bookid });
+        }
     }
 }
