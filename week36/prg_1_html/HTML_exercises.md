@@ -80,7 +80,7 @@ Make a basic static webpage using the following tags
     ```
     <button onclick="alert('You clicked the button!')">Click Me</button>
     ```
-- input (an input field)
+- input (an input field) Try setting the "type" attribute value as one of the following:
     - date
     - checkbox
     - file
