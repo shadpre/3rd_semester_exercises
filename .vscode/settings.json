@@ -31,7 +31,7 @@
             "path": "week33/prg_5_service"
         },
         {
-            "color": "cyan",
+            "color": "green",
             "path": "week34/prg_1_Dapper"
         },
         {
@@ -39,12 +39,16 @@
             "path": "week34/prg_2_Dapper_2"
         },
         {
-            "color": "cyan",
+            "color": "green",
             "path": "week34/prg_3_Bogus"
         },
         {
-            "color": "cyan",
+            "color": "green",
             "path": "week34/prg_4_middleware_actionfilters"
+        },
+        {
+            "color": "green",
+            "path": "week34"
         },
         {
             "color": "green",

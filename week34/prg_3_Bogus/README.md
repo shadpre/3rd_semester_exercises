@@ -3,7 +3,8 @@
 - More database work
 
 **Recommended actions:**
-- Do the exercises combining Bogus with infrastructure (seeding database with random data for testing purposes)
+- Prioritize doing the Dapper exercises (from monday)
+- Today's exercises
 
 ### Relevant documentation & literature:
 - Bogus repository: https://github.com/bchavez/Bogus
