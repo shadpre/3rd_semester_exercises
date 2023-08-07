@@ -1,8 +1,8 @@
 
-Exercises: I recommend going from first chapter here: 
+Exercises: I recommend going from first chapter("What is Javascript" in the sidebar) here: 
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps
 
-To the chapter "Arrays".
+And continue until "Arrays" (inclusive).
 
 Then arrays exercises.
 

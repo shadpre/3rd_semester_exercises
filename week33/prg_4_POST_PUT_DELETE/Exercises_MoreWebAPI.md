@@ -18,6 +18,29 @@ https://learning.postman.com/docs/getting-started/first-steps/overview/
 
 **Learning objective:** The basics of navigating and using Postman to send HTTP requests and analyze responses.
 
+### Import a request
+
+**Task:** Import an HTTP request into Postman to analyze an HTTP request (and send it again).
+
+<details  style="margin: 25px;">
+  <summary>Click here to see guided solution</summary>
+
+1. Open up Swagger when you have your Web API running. 
+
+2. Now go to the networking tab of you browser (Right click the web page and press inspect to open up developer tools. Now locate the tab called "network"). 
+
+3. Send an HTTP request from Swagger now with the network tab open. Now right click the HTTP request in the Developer tools and select "Copy as cURL". 
+4. Go into Postman, and select file -> import and select "raw text". Now paste the copied cURL command. You may have to confirm again.
+
+What data can you see about the HTTP request you sent from the Swagger page?
+
+</details>
+
+**Success criteria:** You should now have an HTTP request with tons of data (HTTP headers, maybe a payload, etc) visible in Postman. You should be able to click the send button to send the same request from Postman instead of your browser.
+
+**Learning objective:** You must be able to use a tool like Postman to analyze HTTP requests and responses - and a relevant step is learning to import an HTTP request.
+
+
 ### Construct a Custom POST Endpoint
 
 
