@@ -1,12 +1,14 @@
-
-Exercises: I recommend going from first chapter("What is Javascript" in the sidebar) here: 
+### Mozilla's "First Steps"
+**Task:** I recommend reading Mozilla's First Steps until the "Arrays" portion(see in sidebar):
 https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps
 
-And continue until "Arrays" (inclusive).
 
-Then arrays exercises.
+### The console and basic javascript objects
 
-(Functions and objects sections and their chapters can be skipped. You largely understand functions and objects already, and since we'll end up using Typescript(builds on top of Javascript), which has it's own type system, the "objects" section is not very important)
+### DOM manipulation
 
-For the next time (before FETCH)
-"Asynchronous Javascript" is also good
+### Local Storage
+
+### String methods
+
+### Array methods
