@@ -8,4 +8,4 @@
 - Today's exercises
 
 ### Relevant references:
-- 
+The Mozilla docs references in the exercises for each portion.
