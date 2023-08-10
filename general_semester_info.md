@@ -67,15 +67,15 @@ October-November (exact date unknown): Presentation of elective courses for 5th 
 
 October-November (exact date unknown): Special visitor: Daniel Schrøder from Webitall. 
 
-November 13th: Deadline for picking electives for 4th semester.
+**November 13th: Deadline for picking electives for 4th semester.**
 
 (Unknown: Special deadline for students taking 4th semester abroad)
 
-November 13th: Exam project start. Groups and project descriptions must be approved by this date.
+**November 13th (week 46): Exam project start. Groups and project descriptions must be approved by this date.**
 
-December 22nd: Submit exam project on Wiseflow.
+**December 22nd: Submit exam project on Wiseflow.**
 
-January 2024: Exams
+**January 2024: Exams**
 
 February 2024: Start of 4th semester
 
@@ -97,7 +97,7 @@ Intenational ICS link: https://tinyurl.com/icsoutlookint
 <details  style="margin: 25px;">
   <summary><b style="font-size: 25px">Click to expand compulsory assignment info</b></summary>
   Compulsory assignment starts week 41.
-   
+
   Your solution must be accepted by semester coordinator Alex Uldahl Pedersen in order to attend the exam.
 
 See Programming II (or the course git repository) for assignment details.
