@@ -15,12 +15,16 @@ public class MediumLinqExercises : IMediumLinqExercises
 {
     public int CountVowels(string text)
     {
-        throw new NotImplementedException();
+        var query = from chars in text.ToCharArray() where "aeiouy".Contains(chars) select chars;
+        return query.Count();
     }
 
     public List<int> GetNumbersInRange(List<int> numbers, int start, int end)
     {
-        throw new NotImplementedException();
+        var q = from i in numbers
+            where (numbers.IndexOf(i) >= start && numbers.IndexOf(i) <= end)
+            select i;
+        return q.ToList();
     }
 
     public int GetSumOfSquares(List<int> numbers)
